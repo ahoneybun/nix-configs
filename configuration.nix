@@ -79,6 +79,9 @@
     # Enable the OpenSSH daemon
     services.openssh.enable = true;
 
+    # Turn off PulseAudio
+    hardware.pulseaudio.enable = false;
+
     # Enable Pipewire
     security.rtkit.enable = true;
     services.pipewire = {
