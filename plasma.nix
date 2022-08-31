@@ -2,11 +2,13 @@
 
 {
     # Plasma
-    services.xserver.enable = true;
-    services.xserver.displayManager.sddm.enable = true;
-    services.xserver.displayManager.sddm.settings.Wayland.SessionDir =
+    services.xserver = {
+       enable = true;
+    displayManager.sddm.enable = true;
+    displayManager.sddm.settings.Wayland.SessionDir =
        "${pkgs.plasma5Packages.plasma-workspace}/share/wayland-sessions";
-    services.xserver.desktopManager.plasma5.enable = true;
+    desktopManager.plasma5.enable = true;
+    };
 
     # Install some packages
     environment.systemPackages = 
