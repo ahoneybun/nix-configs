@@ -3,7 +3,7 @@
 {
 
     # Name your host machine
-    networking.hostName = "oryp6"; 
+    networking.hostName = "hp-omen"; 
 
     # NVIDIA
     services.xserver.videoDrivers = [ "nvidia" ];   
