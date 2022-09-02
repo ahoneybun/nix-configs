@@ -1,6 +1,10 @@
 { config, pkgs, ... }: 
 
 {
+
+    # Name your host machine
+    networking.hostName = "oryp6"; 
+
     # NVIDIA
     services.xserver.videoDrivers = [ "nvidia" ];   
     hardware.opengl.enable = true;
