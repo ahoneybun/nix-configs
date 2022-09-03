@@ -1,7 +1,6 @@
 { config, pkgs, ... }: 
 
 {
-  
   # GNOME
   services.xserver = {
     enable = true;
@@ -20,5 +19,4 @@
   gnome-tour
   epiphany # web browser
   ]);
-
 }
