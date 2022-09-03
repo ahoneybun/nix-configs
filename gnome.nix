@@ -9,4 +9,16 @@
     desktopManager.gnome.enable = true;
   };
 
+  # Add GNOME packages
+  environment.systemPackages = [
+    pkgs.amberol
+  ];
+  
+  # Remove GNOME packages
+  environment.gnome.excludePackages = (with pkgs; [
+  gnome-photos
+  gnome-tour
+  epiphany # web browser
+  ]);
+
 }
