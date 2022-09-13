@@ -61,6 +61,9 @@
   # Enable Bluetooth
   hardware.bluetooth.enable = true;
 
+  # Enable the OpenSSH daemon
+  services.openssh.enable = true;
+
   # Enable CUPS
   services.printing.enable = true;
 
