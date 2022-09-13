@@ -26,16 +26,12 @@
   environment.systemPackages = 
             with pkgs; 
             [
-                firefox
                 fish
                 git
                 neofetch
-                thunderbird
                 restic
                 wget
             ]; 
-
-  services.openssh.enable = true;
 
   # Define user accounts
     users.extraUsers.aaronh = {
