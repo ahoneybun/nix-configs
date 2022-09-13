@@ -16,7 +16,7 @@
   };
 
   networking = {
-    hostName = "NixOS-rpi4";
+    hostName = "rpi4";
     networkmanager.enable = true;
   };
 
