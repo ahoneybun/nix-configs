@@ -8,11 +8,19 @@
    environment.systemPackages = 
            with pkgs; 
               [
+               # Comms
                discord
+
+               # Office
                libreoffice-fresh
                slack
+
+               # Work
                virt-manager
                vscode
+
+               # Streaming
+               obs-studio
               ];
 
    programs.fish.enable = true;
