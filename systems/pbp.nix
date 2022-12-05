@@ -6,6 +6,18 @@
 #       ./programs.nix
     ];
 
+  boot.loader = {
+    efi = {
+    canTouchEfiVariables = true;
+  };
+
+  grub = {
+     enable = true;
+     efiSupport = true;
+     device = "/dev/mmcblk0";
+    };
+  };
+
   fileSystems = {
     "/" = {
       device = "/dev/disk/by-label/NIXOS_SD";
