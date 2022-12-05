@@ -18,6 +18,13 @@
     };
   };
 
+  boot.initrd.luks.devices = {
+    crypt-root = {
+      device = "/dev/disk/by-label/luks";
+      preLVM = true;
+    };
+  };
+
   fileSystems = {
     "/" = {
       device = "/dev/disk/by-label/NIXOS_SD";
