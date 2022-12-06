@@ -20,6 +20,38 @@
     };
   };
 
+  boot.initrd.kernelModules = [
+    # Rockchip modules
+    "rockchip_rga"
+    "rockchip_saradc"
+    "rockchip_thermal"
+    "rockchipdrm"
+
+    # GPU/Display modules
+    "analogix_dp"
+    "cec"
+    "drm"
+    "drm_kms_helper"
+    "dw_hdmi"
+    "dw_mipi_dsi"
+    "gpu_sched"
+    "panel_edp"
+    "panel_simple"
+    "panfrost"
+    "pwm_bl"
+
+    # USB / Type-C related modules
+    "fusb302"
+    "tcpm"
+    "typec"
+
+    # Misc. modules
+    "cw2015_battery"
+    "gpio_charger"
+    "rtc_rk808"
+  ];
+
+
   boot.initrd.luks.devices = {
     crypt-root = {
       device = "/dev/disk/by-label/luks";
