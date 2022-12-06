@@ -14,7 +14,7 @@
   grub = {
      enable = true;
      efiSupport = true;
-     device = "/dev/mmcblk0";
+     device = "/dev/mmcblk0p1";
     };
   };
 
