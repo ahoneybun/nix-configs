@@ -51,7 +51,6 @@
     "rtc_rk808"
   ];
 
-
   boot.initrd.luks.devices = {
     crypt-root = {
       device = "/dev/disk/by-label/luks";
