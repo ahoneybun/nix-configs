@@ -8,13 +8,14 @@
 
   boot.loader = {
     efi = {
-    canTouchEfiVariables = true;
+    canTouchEfiVariables = false;
   };
 
   grub = {
      enable = true;
      efiSupport = true;
-     device = "/dev/mmcblk0p1";
+     version = 2;
+     device = "nodev";
     };
   };
 
