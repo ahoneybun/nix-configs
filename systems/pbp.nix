@@ -12,10 +12,11 @@
   };
 
   grub = {
-     enable = true;
-     efiSupport = true;
-     version = 2;
-     device = "nodev";
+    enable = true;
+    efiInstallAsRemovable = true;
+    efiSupport = true;
+    version = 2;
+    device = "nodev";
     };
   };
 
