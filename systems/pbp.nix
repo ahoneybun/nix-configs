@@ -6,6 +6,8 @@
 #       ./programs.nix
     ];
 
+  boot.kernelPackages = pkgs.linuxPackages_latest;
+
   boot.loader = {
     efi = {
     canTouchEfiVariables = false;
