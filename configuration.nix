@@ -79,6 +79,10 @@
                wget
            ]; 
  
+   users.users.aaronh = {   
+      shell = pkgs.fish;
+   };
+
    # Enable the OpenSSH daemon
    services.openssh.enable = true;
 
@@ -103,6 +107,5 @@
    # System 
    system.stateVersion = "22.11";
    system.autoUpgrade.enable = true;
-   system.autoUpgrade.allowReboot = true;
 
 }
