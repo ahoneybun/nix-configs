@@ -25,7 +25,4 @@
 
    programs.fish.enable = true;
 
-   users.users.aaronh = {   
-      shell = pkgs.fish;
-  };
 }
