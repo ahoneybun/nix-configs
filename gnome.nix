@@ -19,4 +19,8 @@
   gnome-tour
   epiphany # web browser
   ]);
+
+  # Services
+  services.udev.packages = with pkgs; [ gnome.gnome-settings-daemon ];
+
 }
