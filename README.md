@@ -15,6 +15,7 @@ Nix files: (nix-configs/systems)
 - `oryp6.nix` : This file is mainly for my System76 Oryx Pro (oryp6) to add and enable the NVIDIA driver from stable
 - `hp-omen.nix` : This file is mainly for my HP Omen to add and enable the NVIDIA driver from stable
 - `rpi4.nix` : This file is to configure a Raspberry Pi 4B
+- `pbp.nix` : This file is to configure a PineBook Pro
 
 Nix files: (nix-configs/dev)
 
