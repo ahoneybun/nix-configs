@@ -3,6 +3,7 @@
 {
   imports =
     [
+        ${nixos-hardware}/pine64/pinebook-pro
 #       ./programs.nix
     ];
 
