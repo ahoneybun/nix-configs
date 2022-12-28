@@ -12,7 +12,7 @@
 
   boot.loader = {
     efi = {
-    canTouchEfiVariables = false;
+    canTouchEfiVariables = true;
   };
 
   grub = {
