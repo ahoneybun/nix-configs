@@ -12,6 +12,13 @@ Nix files: (nix-configs/)
 
 Nix files: (nix-configs/systems)
 
+## Use the nixos-hardware channel for Pinebook Pro and Raspberry Pi 4:
+
+```
+sudo nix-channel --add https://github.com/NixOS/nixos-hardware/archive/master.tar.gz nixos-hardware
+sudo nix-channel --update
+```
+
 - `hp-omen.nix` : This file is mainly for my HP Omen to add and enable the NVIDIA driver from stable
 - `linode.nix` : This file is for a Linode instance though it might work for other server setups
 - `oryp6.nix` : This file is mainly for my System76 Oryx Pro (oryp6) to add and enable the NVIDIA driver from stable
