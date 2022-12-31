@@ -12,11 +12,12 @@
 
   boot.loader = {
     efi = {
-    canTouchEfiVariables = true;
+    canTouchEfiVariables = false;
   };
 
   grub = {
     enable = true;
+    efiInstallAsRemovable = true;
     efiSupport = true;
     version = 2;
     device = "nodev";
@@ -58,14 +59,6 @@
     crypt-root = {
       device = "/dev/disk/by-label/luks";
       preLVM = true;
-    };
-  };
-
-  fileSystems = {
-    "/" = {
-      device = "/dev/disk/by-label/NIXOS_SD";
-      fsType = "btrfs";
-      options = [ "noatime" ];
     };
   };
 
