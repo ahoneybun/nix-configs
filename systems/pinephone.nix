@@ -58,15 +58,29 @@
       "wheel"
     ];    
     
-    packages = with pkgs; [
-      gnome.gnome-clocks
-      grim
-      portfolio-filemanager
-    ];
-  };
+  # GUI
+  packages = with pkgs; [
+    deja-dup
+    foliate
+    headlines
+    gnome.gnome-clocks
+    gnome.gnome-calculator
+    gnome-feeds
+    gnome-photos
+    gnome-podcasts
+    lollypop
+    marker
+    portfolio-filemanager
+    spot
+    tootle
+
+  # CLI
+    grim
+
+  ];
+};
 
   time.timeZone = "America/Denver";
-
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
