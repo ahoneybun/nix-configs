@@ -51,12 +51,21 @@
    services.fwupd.enable = true;
 
    # Define user accounts
-   users.extraUsers.aaronh = {
+   users.users.aaronh = {
            description = "Aaron Honeycutt";
            home = "/home/aaronh";
            extraGroups = [ "wheel" "networkmanager" "adm"];
            isNormalUser = true;
            hashedPassword = "$6$aAcbLtqiqzySifls$jdKMOQjoWITHD/dWNNZVUH/qNc6aoJ7v4zYofi0U7IJSVTbmOfChS3mzaJbp57AodjdPNKPrnrip8Nlh2Qanx.";
+
+      packages = with pkgs; [
+         fish
+         steam
+   
+      ];
+
+      shell = pkgs.fish;
+
    };
     
    # Allow Unfree
@@ -70,19 +79,13 @@
            with pkgs; 
            [
                firefox
-               fish
                flatpak
                git
-               steam
                thunderbird
                restic
                wget
            ]; 
  
-   users.users.aaronh = {   
-      shell = pkgs.fish;
-   };
-
    # Enable the OpenSSH daemon
    services.openssh.enable = true;
 
