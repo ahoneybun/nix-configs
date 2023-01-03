@@ -24,8 +24,7 @@
       };
    };
 
-   # Name your host machine
-   # networking.hostName = "NixOS"; 
+   # host machine is set by system file such as hp-omen.nix
    networking.networkmanager.enable = true;
 
    # Set your time zone.
