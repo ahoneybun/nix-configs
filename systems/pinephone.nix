@@ -7,7 +7,8 @@
     <mobile-nixos/examples/phosh/phosh.nix>
   ];
 
-  networking.hostName = "mobile-nixos";
+  networking.hostName = "PinePhone";
+  time.timeZone = "America/Denver";
 
   #
   # Opinionated defaults
@@ -79,8 +80,6 @@
 
   ];
 };
-
-  time.timeZone = "America/Denver";
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
