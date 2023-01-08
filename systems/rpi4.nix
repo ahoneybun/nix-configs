@@ -69,11 +69,6 @@
   # Allow Unfree
   nixpkgs.config.allowUnfree = true;
 
-  # GNOME
-  services.xserver.enable = true;
-  services.xserver.displayManager.gdm.enable = true;
-  services.xserver.desktopManager.gnome.enable = true;
-
   # System 
   system.stateVersion = "22.11";
   system.autoUpgrade.enable = true;
