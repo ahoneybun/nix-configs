@@ -5,6 +5,7 @@
     [
 #       "${nixos-hardware}/pine64/pinebook-pro"
 #        <nixos-hardware/pine64/pinebook-pro>
+        ./hardware-configuration.nix
 #       ./programs.nix
     ];
 
