@@ -6,10 +6,13 @@
 #       "${nixos-hardware}/pine64/pinebook-pro"
 #        <nixos-hardware/pine64/pinebook-pro>
         ./hardware-configuration.nix
+        ./gnome.nix
 #       ./programs.nix
     ];
 
   boot.kernelPackages = pkgs.linuxPackages_latest;
+
+  nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
   boot.loader = {
     efi = {
@@ -56,13 +59,6 @@
     "rtc_rk808"
   ];
 
-  boot.initrd.luks.devices = {
-    crypt-root = {
-      device = "/dev/disk/by-label/luks";
-      preLVM = true;
-    };
-  };
-
   networking = {
     hostName = "pbp";
     networkmanager.enable = true;
@@ -77,7 +73,8 @@
                 fish
                 git
                 neofetch
-                restic
+                nixos-conf-editor
+                nix-software-center
                 wget
             ]; 
 
@@ -88,6 +85,14 @@
             extraGroups = [ "wheel" "networkmanager" "adm"];
             isNormalUser = true;
             hashedPassword = "$6$aAcbLtqiqzySifls$jdKMOQjoWITHD/dWNNZVUH/qNc6aoJ7v4zYofi0U7IJSVTbmOfChS3mzaJbp57AodjdPNKPrnrip8Nlh2Qanx.";
+
+
+    packages = with pkgs; [
+      fish
+    ];
+
+    shell = pkgs.fish;
+
     };
 
   # Enable Pipewire
@@ -111,20 +116,11 @@
   # Enable CUPS
   services.printing.enable = true;
 
-  # Enable GPU acceleration
-  # hardware.raspberry-pi."4".fkms-3d.enable = true;
-
   # Allow Unfree
   nixpkgs.config.allowUnfree = true;
-
-  # GNOME
-  services.xserver.enable = true;
-  services.xserver.displayManager.gdm.enable = true;
-  services.xserver.desktopManager.gnome.enable = true;
 
   # System 
   system.stateVersion = "22.11";
   system.autoUpgrade.enable = true;
-
 
 }
