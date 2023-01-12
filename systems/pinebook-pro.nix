@@ -70,9 +70,8 @@
   environment.systemPackages = 
             with pkgs; 
             [
-                fish
-                git
-                neofetch
+                nixos-conf-editor
+                nix-software-center
                 wget
             ]; 
 
