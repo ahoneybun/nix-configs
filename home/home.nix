@@ -18,10 +18,10 @@
 
   nixpkgs.config.allowUnfree = true; 
 
-  home.packages = [
-    pkgs.fish
-    pkgs.git
-    pkgs.vscode
+  home.packages = with pkgs; [
+    fish
+    git
+    vscode
   ];
 
   programs.fish = {
