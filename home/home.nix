@@ -20,7 +20,9 @@
 
   home.packages = with pkgs; [
     fish
+    fishPlugins.grc
     git
+    neofetch
     vscode
   ];
 
