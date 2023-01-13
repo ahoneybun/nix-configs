@@ -3,7 +3,6 @@
 {
   imports =
     [
-#       "${nixos-hardware}/pine64/pinebook-pro"
 #        <nixos-hardware/pine64/pinebook-pro>
         ./hardware-configuration.nix
         ./gnome.nix
@@ -70,9 +69,8 @@
   environment.systemPackages = 
             with pkgs; 
             [
-                nixos-conf-editor
-                nix-software-center
-                wget
+              neofetch
+              wget
             ]; 
 
   # Define user accounts
