@@ -71,6 +71,7 @@
     gnome-podcasts
     lollypop
     marker
+    phosh-mobile-settings
     portfolio-filemanager
     spot
     tootle
