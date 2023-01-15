@@ -74,20 +74,19 @@
             ]; 
 
   # Define user accounts
-    users.extraUsers.aaronh = {
+    users.users.aaronh = {
             description = "Aaron Honeycutt";
             home = "/home/aaronh";
             extraGroups = [ "wheel" "networkmanager" "adm"];
             isNormalUser = true;
             hashedPassword = "$6$aAcbLtqiqzySifls$jdKMOQjoWITHD/dWNNZVUH/qNc6aoJ7v4zYofi0U7IJSVTbmOfChS3mzaJbp57AodjdPNKPrnrip8Nlh2Qanx.";
 
-
     packages = with pkgs; [
       fish
     ];
 
     shell = pkgs.fish;
-
+    
     };
 
   # Enable Pipewire
