@@ -23,7 +23,7 @@ sudo nix-channel --update
 - `linode.nix` : This file is for a Linode instance though it might work for other server setups
 - `oryp6.nix` : This file is mainly for my System76 Oryx Pro (oryp6) to add and enable the NVIDIA driver from stable
 - `rpi4.nix` : This file is to configure a Raspberry Pi 4B
-- `pbp.nix` : This file is to configure a PineBook Pro
+- `pinebook-pro.nix` : This file is to configure a PineBook Pro
 - `pinephone.nix` : This file is to configure a PinePhone
 
 Nix files: (nix-configs/dev)
