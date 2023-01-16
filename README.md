@@ -41,6 +41,7 @@ sudo nix-channel --update
 These files are for development such as Apache.
 
 - `lamp.nix` : This file is a WIP for LAMP setup. 
+- `nginx.nix` : This file is a basic setup for Nginx.
 
 ### Screenshots
 
