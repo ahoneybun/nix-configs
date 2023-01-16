@@ -5,7 +5,6 @@
     [
 #        <nixos-hardware/pine64/pinebook-pro>
         ./hardware-configuration.nix
-#       ./gnome.nix
 #       ./programs.nix
     ];
 
