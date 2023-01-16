@@ -86,7 +86,6 @@
     ];
 
     shell = pkgs.fish;
-    
     };
 
   # Enable Pipewire
