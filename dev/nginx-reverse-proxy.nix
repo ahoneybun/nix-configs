@@ -6,6 +6,7 @@
       recommendedTlsSettings = true;
       recommendedOptimisation = true;
       recommendedGzipSettings = true;
+      recommendedProxySettings = true;
 
       virtualHosts = {
         "ahoneybun.net" = {
