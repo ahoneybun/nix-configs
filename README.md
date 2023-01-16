@@ -7,8 +7,15 @@ Nix files: (nix-configs/)
 - `configuration.nix` : This is the main file for the base system including some applications that I use
 - `plasma.nix` : This file is for the desktop, login manager and other KDE applications
 - `gnome.nix` : This file is for the desktop and login manager
+- `pantheon.nix` : This file is for the desktop and login manager (this removes AppCenter)
 - `programs.nix` : This file adds applications like Slack, Discord and virt-manager including turning on the services
 - `unstable.nix` : This file has the applications that need to be from unstable to work like ProtonVPN software
+
+## Screenshots
+
+![GNOME Installation](Screenshots/nixos-gnome.png)
+
+![Pantheon Installation](Screenshots/nixos-pantheon.png)
 
 Nix files: (nix-configs/systems)
 
