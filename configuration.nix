@@ -24,7 +24,6 @@
       };
    };
 
-   # host machine is set by system file such as hp-omen.nix
    networking.networkmanager.enable = true;
 
    # Set your time zone.
@@ -58,14 +57,13 @@
            hashedPassword = "$6$aAcbLtqiqzySifls$jdKMOQjoWITHD/dWNNZVUH/qNc6aoJ7v4zYofi0U7IJSVTbmOfChS3mzaJbp57AodjdPNKPrnrip8Nlh2Qanx.";
 
       packages = with pkgs; [
-         fish
-         steam
-   
+         firefox
+         fish   
+         thunderbird
       ];
 
       shell = pkgs.fish;
-
-   };
+      };
     
    # Allow Unfree
    nixpkgs.config.allowUnfree = true;
@@ -77,10 +75,8 @@
    environment.systemPackages = 
            with pkgs; 
            [
-               firefox
                flatpak
                git
-               thunderbird
                restic
                wget
            ]; 
