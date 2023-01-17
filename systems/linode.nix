@@ -5,8 +5,14 @@
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
     ];
-  
+
+  boot.kernelPackages = pkgs.linuxPackages_latest;
   boot.kernelParams = [ "console=ttyS0,19200n8" ];
+  
+  boot.binfmt.emulatedSystems = [ "aarch64-linux" ];
+
+  nix.settings.extra-platforms = [ "aarch64-linux" ];
+  nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
   # Use the GRUB 2 boot loader.
   boot.loader.grub.enable = true;
@@ -22,6 +28,83 @@
   # Define on which hard drive you want to install Grub.
   boot.loader.grub.device = "nodev"; # or "nodev" for efi only
   boot.loader.timeout = 10;
+
+  networking.firewall = {
+    enable = true;
+    allowedTCPPorts = [ 80 443 ];
+  };
+
+  fileSystems."/mnt/ExtraDrive" =
+    { device = "/dev/disk/by-uuid/82672991-fe8a-485a-8dcf-7c8ae1282b6c";
+      fsType = "ext4";
+    };
+
+  services.hydra = {
+    enable = true;
+    hydraURL = "localhost:3000";
+    notificationSender = "hydra@localhost";
+    buildMachinesFiles = [];
+    useSubstitutes = true;
+  };
+
+  security.acme.acceptTerms = true;
+  security.acme.defaults.email = "aaronhoneycutt@proton.me";
+
+  services.nginx = {
+    enable = true;
+    recommendedTlsSettings = true;
+    recommendedOptimisation = true;
+    recommendedGzipSettings = true;
+    recommendedProxySettings = true;
+
+    virtualHosts = {
+      "ahoneybun.net" = {
+      forceSSL = true;
+      enableACME = true;
+      locations."/" = {
+        root = "/var/www/website";
+        };
+      };
+    };
+
+    virtualHosts = {
+      "hydra.ahoneybun.net" = {
+      forceSSL = true;
+      enableACME = true;
+      locations."/" = {
+        proxyPass = "http://127.0.0.1:3000";
+
+        extraConfig = ''
+          etag on;
+          gzip on;
+
+          add_header 'Access-Control-Allow-Origin' '*' always;
+          add_header 'Access-Control-Allow-Methods' 'POST, PUT, DELETE, GET, PATCH, OPTIONS' always;
+          add_header 'Access-Control-Allow-Headers' 'Authorization, Content-Type, Idempotency-Key' always;
+          add_header 'Access-Control-Expose-Headers' 'Link, X-RateLimit-Reset, X-RateLimit-Limit, X-RateLimit-Remaining, X-Request-Id' always;
+
+          if ($request_method = OPTIONS) {
+            return 204;
+          }
+
+          add_header X-XSS-Protection "1; mode=block";
+          add_header X-Permitted-Cross-Domain-Policies none;
+          add_header X-Frame-Options DENY;
+          add_header X-Content-Type-Options nosniff;
+          add_header Referrer-Policy same-origin;
+          add_header X-Download-Options noopen;
+          proxy_http_version 1.1;
+          proxy_set_header Upgrade $http_upgrade;
+          proxy_set_header Connection "upgrade";
+          proxy_set_header Host $host;
+
+          client_max_body_size 16m;
+          # NOTE: increase if users need to upload very big files
+        '';
+        };
+      };
+    };
+  };
 
   # networking.hostName = "nixos"; # Define your hostname.
   # Pick only one of the below networking options.
@@ -68,7 +151,25 @@
     isNormalUser = true;
     extraGroups = [ "wheel" "networkmanager" ]; # Enable ‘sudo’ for the user.
     packages = with pkgs; [
-       neofetch
+      neofetch
+  #   firefox
+  #   thunderbird
+    ];
+  };
+
+  users.users.nathanielw = {
+    isNormalUser = true;
+    extraGroups = [ "wheel" "networkmanager" ];
+    packages = with pkgs; [
+      neofetch
+    ];
+  };
+
+  users.users.builder = {
+    isNormalUser = true;
+    extraGroups = [ "wheel" ];
+    packages = with pkgs; [
+      neofetch 
     ];
   };
 
@@ -77,6 +178,7 @@
     inetutils
     mtr
     sysstat
+    tree
     wget
   ];
 
