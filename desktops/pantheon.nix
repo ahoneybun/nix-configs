@@ -12,9 +12,4 @@
   pantheon.appcenter # AppCenter as it can't be used on NixOS
   ]);
 
-  # Hacks
-  systemd.extraConfig = ''
-  DefaultTimeoutStopSec=10s
-  DefaultTimeoutStartSec=10s
-  '';
 }
