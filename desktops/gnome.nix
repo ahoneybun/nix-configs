@@ -15,10 +15,10 @@
   
   # Remove GNOME packages
   environment.gnome.excludePackages = (with pkgs; [
+  epiphany # web browser
+  gnome-connections
   gnome-photos
   gnome-tour
-  gnome-connections
-  epiphany # web browser
   ]);
 
   # Services
