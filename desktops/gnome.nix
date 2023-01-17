@@ -17,6 +17,7 @@
   environment.gnome.excludePackages = (with pkgs; [
   gnome-photos
   gnome-tour
+  gnome-connections
   epiphany # web browser
   ]);
 
