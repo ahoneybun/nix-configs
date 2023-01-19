@@ -77,7 +77,9 @@
            [
                flatpak
                git
+               git-lfs
                restic
+               unzip
                wget
            ]; 
  
