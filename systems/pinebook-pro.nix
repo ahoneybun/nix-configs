@@ -69,7 +69,10 @@
             with pkgs; 
             [
               firefox
+              git
+              git-lfs
               neofetch
+              unzip
               wget
             ]; 
 
