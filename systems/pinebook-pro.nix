@@ -10,8 +10,6 @@
 
   boot.kernelPackages = pkgs.linuxPackages_latest;
 
-  nix.settings.experimental-features = [ "nix-command" "flakes" ];
-
   boot.loader = {
     efi = {
     canTouchEfiVariables = false;
@@ -56,6 +54,14 @@
     "gpio_charger"
     "rtc_rk808"
   ];
+
+  nix.settings.auto-optimise-store = true;
+  nix.settings.experimental-features = [ "nix-command" "flakes" ];
+  nix.gc = {
+     automatic = true;
+     dates = "weekly";
+     options = "--delete-older-than 30d";
+   };
 
   networking = {
     hostName = "pbp";
