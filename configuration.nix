@@ -24,6 +24,15 @@
       };
    };
 
+   nix.settings.auto-optimise-store = true;
+   nix.settings.experimental-features = [ "nix-command" "flakes" ];
+
+   nix.gc = {
+     automatic = true;
+     dates = "weekly";
+     options = "--delete-older-than 30d";
+   };
+
    networking.networkmanager.enable = true;
 
    # Set your time zone.
