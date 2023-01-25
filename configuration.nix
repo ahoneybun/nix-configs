@@ -17,13 +17,6 @@
       systemd-boot.enable = true;
    };
 
-   boot.initrd.luks.devices = {
-      crypt-root = {
-         device = "/dev/disk/by-label/luks";
-         preLVM = true;
-      };
-   };
-
    nix.settings.auto-optimise-store = true;
    nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
