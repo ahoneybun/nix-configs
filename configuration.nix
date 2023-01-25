@@ -52,11 +52,6 @@
        };
    };
 
-   services.flatpak.enable = true;
-
-   # Enable fwupd
-   services.fwupd.enable = true;
-
    # Define user accounts
    users.users.aaronh = {
            description = "Aaron Honeycutt";
@@ -77,9 +72,6 @@
    # Allow Unfree
    nixpkgs.config.allowUnfree = true;
 
-   # Enable 32 Bit libraries for applications like Steam
-   hardware.opengl.driSupport32Bit = true;
-
    # Install some packages
    environment.systemPackages = 
            with pkgs; 
@@ -91,12 +83,13 @@
                unzip
                wget
            ]; 
- 
-   # Enable the OpenSSH daemon
-   services.openssh.enable = true;
 
-   # Turn off PulseAudio
+   # Enable/Disable hardware
+   ## Turn off PulseAudio
    hardware.pulseaudio.enable = false;
+
+   ## Enable 32 Bit libraries for applications like Steam
+   hardware.opengl.driSupport32Bit = true;
 
    # Enable Pipewire
    security.rtkit.enable = true;
@@ -110,8 +103,11 @@
    # Enable Bluetooth
    hardware.bluetooth.enable = true;
 
-   # Enable CUPS
+   # Enable services
+   services.flatpak.enable = true;
+   services.fwupd.enable = true;
    services.printing.enable = true;
+   services.openssh.enable = true;
 
    # System 
    system.stateVersion = "22.11";
