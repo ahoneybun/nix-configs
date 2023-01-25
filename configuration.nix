@@ -7,7 +7,7 @@
    imports =
        [
            ./hardware-configuration.nix
-           ./programs.nix
+#           ./programs.nix
        ];
 
    # Latest kernel
