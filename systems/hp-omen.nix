@@ -9,6 +9,9 @@
     hardware.opengl.enable = true;
     hardware.nvidia.package = config.boot.kernelPackages.nvidiaPackages.stable;
 
+   ## Enable 32 Bit libraries for applications like Steam
+   hardware.opengl.driSupport32Bit = true;
+
     # Allow Unfree
     nixpkgs.config.allowUnfree = true;
 }
