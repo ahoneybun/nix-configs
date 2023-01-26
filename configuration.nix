@@ -81,9 +81,6 @@
    ## Turn off PulseAudio
    hardware.pulseaudio.enable = false;
 
-   ## Enable 32 Bit libraries for applications like Steam
-   hardware.opengl.driSupport32Bit = true;
-
    # Enable Pipewire
    security.rtkit.enable = true;
    services.pipewire = {
