@@ -1,3 +1,6 @@
+{ config, pkgs, ... }:
+
+{
     security.acme.acceptTerms = true;
     security.acme.defaults.email = "aaronhoneycutt@proton.me";
 
@@ -13,3 +16,4 @@
       };
     };
   };
+}
