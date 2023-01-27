@@ -1,18 +1,21 @@
-    security.acme.acceptTerms = true;
-    security.acme.defaults.email = "aaronhoneycutt@proton.me";
+ { config, pkgs, ... }:
 
-    services.nginx = {
-      enable = true;
-      recommendedTlsSettings = true;
-      recommendedOptimisation = true;
-      recommendedGzipSettings = true;
-      recommendedProxySettings = true;
+{
+  security.acme.acceptTerms = true;
+  security.acme.defaults.email = "aaronhoneycutt@proton.me";
 
-      virtualHosts = {
-        "ahoneybun.net" = {
-        forceSSL = true;
-        enableACME = true;
-        locations."/" = {
+  services.nginx = {
+    enable = true;
+    recommendedTlsSettings = true;
+    recommendedOptimisation = true;
+    recommendedGzipSettings = true;
+    recommendedProxySettings = true;
+
+    virtualHosts = {
+      "hydra.ahoneybun.net" = {
+      forceSSL = true;
+      enableACME = true;
+      locations."/" = {
         proxyPass = "http://127.0.0.1:3000";
 
         extraConfig = ''
@@ -22,7 +25,7 @@
           add_header 'Access-Control-Allow-Origin' '*' always;
           add_header 'Access-Control-Allow-Methods' 'POST, PUT, DELETE, GET, PATCH, OPTIONS' always;
           add_header 'Access-Control-Allow-Headers' 'Authorization, Content-Type, Idempotency-Key' always;
-          add_header 'Access-Control-Expose-Headers' 'Link, X-RateLimit-Reset, X-RateLimit-Limit, X-RateLimit-Remaining, X-Request-Id' always;
+          add_header 'Access-Control-Expose-Headers' 'Link, X-RateLimit-Reset, X-RateLimit-Limit, X-RateLimit-Remaining, X-Request-Id' alway>
           if ($request_method = OPTIONS) {
             return 204;
           }
@@ -44,3 +47,5 @@
       };
     };
   };
+
+}
