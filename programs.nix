@@ -1,28 +1,27 @@
 { config, pkgs, ... }: 
 
 {
-   # virt-manager
-   virtualisation.libvirtd.enable = true;
+    # virt-manager
+    virtualisation.libvirtd.enable = true;
 
-   # Packages
-   environment.systemPackages = 
-           with pkgs; 
-              [
-               # Comms
-               discord
+    # Packages
+    environment.systemPackages = 
+       with pkgs; 
+         [
+            # Comms
+             discord
+            signal-deskto
 
-               # Office
-               libreoffice-fresh
-               slack
+            # Office
+            libreoffice-fresh
 
-               # Work
-               virt-manager
-               vscode
+             # Work
+             slack
+            virt-manager
+            vscode
 
-               # Streaming
-               obs-studio
-              ];
-
-   programs.fish.enable = true;
+             # Streaming
+            obs-studio
+            ];
 
 }
