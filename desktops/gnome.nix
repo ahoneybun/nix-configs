@@ -19,8 +19,8 @@
   # Remove GNOME packages
   environment.gnome.excludePackages = (with pkgs; [
     epiphany # web browser
+    gnome.geary
     gnome-connections
-    gnome-geary
     gnome-photos
     gnome-tour
   ]);
