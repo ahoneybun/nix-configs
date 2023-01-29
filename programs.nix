@@ -9,8 +9,8 @@
        with pkgs; 
          [
             # Comms
-             discord
-            signal-deskto
+            discord
+            signal-desktop
 
             # Office
             libreoffice-fresh
