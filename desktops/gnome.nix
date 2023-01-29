@@ -20,6 +20,7 @@
   environment.gnome.excludePackages = (with pkgs; [
     epiphany # web browser
     gnome.geary
+    gnome.gnome-software
     gnome-connections
     gnome-photos
     gnome-tour
