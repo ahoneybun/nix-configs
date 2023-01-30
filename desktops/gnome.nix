@@ -11,10 +11,8 @@
   # Add GNOME packages
   environment.systemPackages = (with pkgs; [
     amberol
+    gnomeExtensions.appindicator
   ]);
-  
-  # GNOME Shell Extensions
-  environment.systemPackages = with pkgs; [ gnomeExtensions.appindicator ];
 
   # Remove GNOME packages
   environment.gnome.excludePackages = (with pkgs; [
