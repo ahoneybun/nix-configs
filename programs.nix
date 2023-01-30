@@ -15,12 +15,12 @@
             # Office
             libreoffice-fresh
 
-             # Work
-             slack
+            # Work
+            slack
             virt-manager
             vscode
 
-             # Streaming
+            # Streaming
             obs-studio
             ];
 
