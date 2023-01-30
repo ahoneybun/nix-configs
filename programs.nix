@@ -10,13 +10,14 @@
          [
             # Comms
             discord
+            slack
             signal-desktop
 
             # Office
+            google-chrome
             libreoffice-fresh
 
             # Work
-            slack
             virt-manager
             vscode
 
