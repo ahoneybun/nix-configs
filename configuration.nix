@@ -99,6 +99,13 @@
    services.printing.enable = true;
    services.openssh.enable = true;
 
+   services.avahi = {
+      enable = true;
+      nssmdns = true;
+      openFirewall = true;
+   };
+
+
    # System 
    system.stateVersion = "22.11";
    system.autoUpgrade.enable = true;
