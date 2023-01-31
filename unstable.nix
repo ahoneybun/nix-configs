@@ -6,9 +6,9 @@ let
     # reuse the current configuration
     { config = config.nixpkgs.config; };
 in
+
 {
   environment.systemPackages = with pkgs; [
-    unstable.protonvpn-cli
-    unstable.protonvpn-gui
+    unstable.rustc
   ];
 }
