@@ -11,7 +11,11 @@
   # Add GNOME packages
   environment.systemPackages = (with pkgs; [
     amberol
+    gnome.dconf-editor
+    gnome.gnome-tweaks
     gnomeExtensions.appindicator
+    gnomeExtensions.pop-shell
+    gnomeExtensions.pop-launcher-super-key
   ]);
 
   # Remove GNOME packages
