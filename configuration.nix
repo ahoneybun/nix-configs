@@ -105,7 +105,6 @@
       openFirewall = true;
    };
 
-
    # System 
    system.stateVersion = "22.11";
    system.autoUpgrade.enable = true;
