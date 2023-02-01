@@ -1,10 +1,11 @@
-# WIP might not work yet
+# Builds now
 
 { pkgs ? import <nixpkgs> {} }:
   pkgs.mkShell {
     nativeBuildInputs = with pkgs; [ 
        appstream-glib
        cargo
+       clang
        cmake
        dbus
        desktop-file-utils
@@ -13,6 +14,7 @@
        gtk4
        just
        llvm
+       llvmPackages_15.llvm
        libclang
        libglvnd
        libinput
@@ -21,8 +23,12 @@
        mesa
        meson
        ninja
+       pipewire
        pkg-config
        seatd
        systemd
        ];
-}
+
+  LIBCLANG_PATH = "${pkgs.llvmPackages_15.libclang.lib}/lib";
+
+  }
