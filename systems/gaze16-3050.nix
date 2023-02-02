@@ -2,7 +2,7 @@
 
 {
     # Name your host machine
-    networking.hostName = "gaze16"; 
+    networking.hostName = "gaze16-3050"; 
 
     # System76
     hardware.system76.enableAll = true;
