@@ -54,28 +54,36 @@
            hashedPassword = "$6$aAcbLtqiqzySifls$jdKMOQjoWITHD/dWNNZVUH/qNc6aoJ7v4zYofi0U7IJSVTbmOfChS3mzaJbp57AodjdPNKPrnrip8Nlh2Qanx.";
 
       packages = with pkgs; [
+         # Fonts
+         fira
+         fira-mono
+         roboto-slab
+
          firefox
-         fish   
+         neofetch
          thunderbird
       ];
-
-      shell = pkgs.fish;
-      };
+   };
     
    # Allow Unfree
    nixpkgs.config.allowUnfree = true;
 
    # Install some packages
    environment.systemPackages = 
-           with pkgs; 
-           [
-               flatpak
-               git
-               git-lfs
-               restic
-               unzip
-               wget
-           ]; 
+      with pkgs; 
+         [
+            avahi
+            cargo
+            flatpak
+            git
+            git-lfs
+            just
+            nix-index
+            restic
+            rustc
+            unzip
+            wget
+         ]; 
 
    # Enable/Disable hardware
    ## Turn off PulseAudio
