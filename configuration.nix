@@ -81,6 +81,7 @@
             nix-index
             restic
             rustc
+            toybox
             unzip
             wget
          ]; 
