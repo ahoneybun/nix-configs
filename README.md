@@ -38,7 +38,7 @@ sudo nix-channel --update
 
 ## Development Nix files: (nix-configs/dev)
 
-These files are for development such as Apache.
+These files are for development such as LAMP and NGNIX.
 
 - `lamp.nix` : This file is a WIP for LAMP setup. 
 - `ahoneybun-net.nix` : This file is a basic setup for my website (ahoneybun.net).
