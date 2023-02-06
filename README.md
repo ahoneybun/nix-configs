@@ -41,7 +41,9 @@ sudo nix-channel --update
 These files are for development such as Apache.
 
 - `lamp.nix` : This file is a WIP for LAMP setup. 
-- `nginx.nix` : This file is a basic setup for Nginx.
+- `ahoneybun-net.nix` : This file is a basic setup for my website (ahoneybun.net).
+- `hydra-ahoneybun-net.nix` : This file is a NGINX reverse proxy for my [Hydra](https://github.com/NixOS/hydra) server pointing to the localhost.
+- `ngnix-owncast.nix` : This file is a NGINX reverse proxy for [Owncast](https://owncast.online) though it is not currently working.
 
 ## Home Manager file: (nix-configs/home)
 
