@@ -43,6 +43,12 @@ These files are for development such as Apache.
 - `lamp.nix` : This file is a WIP for LAMP setup. 
 - `nginx.nix` : This file is a basic setup for Nginx.
 
+## Home Manager file: (nix-configs/home)
+
+This file is for using with [Home Manager](https://nix-community.github.io/home-manager/index.html#sec-install-standalone).
+
+
+- `home.nix` : This file is for settings for my user like Git name/email and other settings
 ### Screenshots
 
 ![GNOME Installation](Screenshots/nixos-gnome.png)
