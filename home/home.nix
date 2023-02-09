@@ -43,10 +43,6 @@
     aliases = {
        undo = "reset HEAD~1 --mixed";
        amend = "commit -a --amend";
-       prv = "!gh pr view";
-       prc = "!gh pr create";
-       prs = "!gh pr status";
-       prm = "!gh pr merge -d";
     };
     extraConfig = {
        color = {
