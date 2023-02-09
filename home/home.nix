@@ -40,6 +40,27 @@
     enable = true;
     userName = "Aaron Honeycutt";
     userEmail = "aaronhoneycutt@protonmail.com";
+    aliases = {
+       undo = "reset HEAD~1 --mixed";
+       amend = "commit -a --amend";
+       prv = "!gh pr view";
+       prc = "!gh pr create";
+       prs = "!gh pr status";
+       prm = "!gh pr merge -d";
+    };
+    extraConfig = {
+       color = {
+          ui = "auto";
+       };
+       color.status = {
+          added = "green bold";
+          changed = "yellow bold";
+          untracked = "red bold";
+       };
+       push = {
+          autoSetupRemote = "true";
+       };
+    };
   };
 
   programs.command-not-found.enable = true; 
