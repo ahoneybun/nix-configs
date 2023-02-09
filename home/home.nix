@@ -19,16 +19,12 @@
   nixpkgs.config.allowUnfree = true; 
 
   home.packages = with pkgs; [
-    element-desktop
     fish
     fishPlugins.grc
-    foliate
-    fractal
     git
     git-lfs
     keybase-gui
     neofetch
-    watchmate
     vscode
   ];
 
@@ -45,17 +41,20 @@
        amend = "commit -a --amend";
     };
     extraConfig = {
-       color = {
-          ui = "auto";
-       };
-       color.status = {
-          added = "green bold";
-          changed = "yellow bold";
-          untracked = "red bold";
-       };
-       push = {
-          autoSetupRemote = "true";
-       };
+      color = {
+         ui = "auto";
+      };
+      color.status = {
+         added = "green bold";
+         changed = "yellow bold";
+         untracked = "red bold";
+      };
+      push = {
+         autoSetupRemote = "true";
+      };
+      init = {
+          defaultBranch = "main";
+      };
     };
   };
 
