@@ -19,10 +19,16 @@
   nixpkgs.config.allowUnfree = true; 
 
   home.packages = with pkgs; [
+    element-desktop
     fish
     fishPlugins.grc
+    foliate
+    fractal
     git
+    git-lfs
+    keybase-gui
     neofetch
+    watchmate
     vscode
   ];
 
@@ -35,6 +41,12 @@
     userName = "Aaron Honeycutt";
     userEmail = "aaronhoneycutt@protonmail.com";
   };
+
+  programs.command-not-found.enable = true; 
+
+  programs.firefox.enable = true;
+  programs.gh.enable = true;
+
 
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
