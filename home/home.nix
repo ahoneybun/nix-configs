@@ -39,6 +39,8 @@
     aliases = {
        undo = "reset HEAD~1 --mixed";
        amend = "commit -a --amend";
+       feature = "commit -m feat: -m new-feature";
+       fix = "commit -m fix: -m issue#";
     };
     extraConfig = {
       color = {
