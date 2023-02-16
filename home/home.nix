@@ -19,21 +19,24 @@
   nixpkgs.config.allowUnfree = true; 
 
   home.packages = with pkgs; [
-    fish
-    fishPlugins.grc
-    git
-    git-lfs
     keybase-gui
+    mattermost-desktop
     neofetch
+    spotify
     vscode
   ];
 
-  programs.fish = {
+  programs.bash = {
     enable = true;
+    shellAliases = {
+      generations = "sudo nix-env -p /nix/var/nix/profiles/system --list-generations";
+      nix-upgrade = "sudo nixos-rebuild switch --upgrade";
+    };
   };
 
   programs.git = {
     enable = true;
+    lfs.enable = true;
     userName = "Aaron Honeycutt";
     userEmail = "aaronhoneycutt@protonmail.com";
     aliases = {
@@ -67,4 +70,5 @@
 
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
+  
 }
