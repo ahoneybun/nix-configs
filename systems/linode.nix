@@ -10,9 +10,26 @@
   boot.kernelParams = [ "console=ttyS0,19200n8" ];
   
   boot.binfmt.emulatedSystems = [ "aarch64-linux" ];
-
+  
   nix.settings.extra-platforms = [ "aarch64-linux" ];
+  nix.settings.auto-optimise-store = true;
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
+
+  nix.buildMachines = [{ 
+     hostName = "localhost";
+     systems = ["x86_64-linux"
+                "aarch64-linux"
+                "x86_64-darwin"
+                "aarch64-darwin"];
+     supportedFeatures = ["kvm" "nixos-test" "big-parallel" "benchmark"];
+     maxJobs = 8;
+  }];
+
+  nix.gc = {
+    automatic = true;
+    dates = "weekly";
+    options = "--delete-older-than 30d";
+  };
 
   # Use the GRUB 2 boot loader.
   boot.loader.grub.enable = true;
