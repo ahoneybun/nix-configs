@@ -12,11 +12,15 @@
 
    # Latest kernel
    boot.kernelPackages = pkgs.linuxPackages_latest;
+   boot.kernelParams = [ "vfio-pci.ids=8086:9b41" "qxl" "bochs_drm"];
 
    boot.loader = {
       systemd-boot.enable = true;
    };
 
+   boot.binfmt.emulatedSystems = [ "aarch64-linux" ];
+
+   nix.settings.extra-platforms = [ "aarch64-linux" ];
    nix.settings.auto-optimise-store = true;
    nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
@@ -59,7 +63,6 @@
          fira-mono
          roboto-slab
 
-         firefox
          neofetch
          thunderbird
       ];
@@ -70,21 +73,27 @@
 
    # Install some packages
    environment.systemPackages = 
-      with pkgs; 
-         [
-            avahi
-            cargo
-            flatpak
-            git
-            git-lfs
-            just
-            nix-index
-            restic
-            rustc
-            toybox
-            unzip
-            wget
-         ]; 
+           with pkgs; 
+           [
+               avahi
+               cargo
+               dmidecode
+               just
+               libcamera
+               lshw
+               mdbook
+               quickemu
+               spice
+               spice-gtk
+               nix-index
+               restic
+               toybox
+               unzip
+               wget
+               xz
+            ]; 
+ 
+   programs.git.lfs.enable = true;   
 
    # Enable/Disable hardware
    ## Turn off PulseAudio
