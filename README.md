@@ -32,9 +32,9 @@ sudo nix-channel --update
 - `hp-omen.nix` : This file is mainly for my HP Omen to add and enable the NVIDIA driver from stable
 - `linode.nix` : This file is for a Linode instance though it might work for other server setups
 - `oryp6.nix` : This file is mainly for my System76 Oryx Pro (oryp6) to add and enable the NVIDIA driver from stable
-- `rpi4.nix` : This file is to configure a Raspberry Pi 4B
-- `pinebook-pro.nix` : This file is to configure a PineBook Pro
-- `pinephone.nix` : This file is to configure a PinePhone
+- `rpi4.nix` : This file is to configure a Raspberry Pi 4B (Vetra Nyx)
+- `pinebook-pro.nix` : This file is to configure a PineBook Pro (Jaal Ama Darav)
+- `pinephone.nix` : This file is to configure a PinePhone (PeeBee)
 
 ## Development Nix files: (nix-configs/dev)
 
