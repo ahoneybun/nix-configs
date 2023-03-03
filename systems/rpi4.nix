@@ -16,7 +16,7 @@
   };
 
   networking = {
-    hostName = "rpi4";
+    hostName = "vetra";
     networkmanager.enable = true;
   };
 
