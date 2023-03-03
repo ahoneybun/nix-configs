@@ -16,7 +16,7 @@
   };
 
   networking = {
-    hostName = "vetra";
+    hostName = "Vetra";
     networkmanager.enable = true;
   };
 
