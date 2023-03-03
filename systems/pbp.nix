@@ -2,6 +2,6 @@
 
 {
     # Name your host machine
-    networking.hostName = "jaal"; 
+    networking.hostName = "Jaal"; 
     
 }
