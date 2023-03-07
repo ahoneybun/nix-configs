@@ -5,11 +5,6 @@
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
 #      ./unstable.nix
-      ./ahoneybun-net.nix
-      ./hydra-ahoneybun-net.nix
-      ./cast-ahoneybun-net.nix
-      ./tildecafe-com.nix
-      ./mstdn-tildecafe-com.nix
     ];
 
   boot.kernelPackages = pkgs.linuxPackages_latest;
