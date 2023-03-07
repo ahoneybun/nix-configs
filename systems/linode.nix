@@ -4,13 +4,19 @@
   imports =
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
+#      ./unstable.nix
+      ./ahoneybun-net.nix
+      ./hydra-ahoneybun-net.nix
+      ./cast-ahoneybun-net.nix
+      ./tildecafe-com.nix
+      ./mstdn-tildecafe-com.nix
     ];
 
   boot.kernelPackages = pkgs.linuxPackages_latest;
   boot.kernelParams = [ "console=ttyS0,19200n8" ];
   
   boot.binfmt.emulatedSystems = [ "aarch64-linux" ];
-  
+
   nix.settings.extra-platforms = [ "aarch64-linux" ];
   nix.settings.auto-optimise-store = true;
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
@@ -39,10 +45,6 @@
     terminal_input serial;
     terminal_output serial
   '';
-  # boot.loader.grub.efiSupport = true;
-  # boot.loader.grub.efiInstallAsRemovable = true;
-  # boot.loader.efi.efiSysMountPoint = "/boot/efi";
-  # Define on which hard drive you want to install Grub.
   boot.loader.grub.device = "nodev"; # or "nodev" for efi only
   boot.loader.timeout = 10;
 
@@ -51,7 +53,12 @@
     allowedTCPPorts = [ 80 443 ];
   };
 
-  fileSystems."/mnt/ExtraDrive" =
+  networking.extraHosts = 
+    ''
+      23.32.241.51 r3.o.lencr.org
+    '';
+
+  fileSystems."/mnt/swapfile" =
     { device = "/dev/disk/by-uuid/82672991-fe8a-485a-8dcf-7c8ae1282b6c";
       fsType = "ext4";
     };
@@ -60,14 +67,14 @@
     enable = true;
     hydraURL = "localhost:3000";
     notificationSender = "hydra@localhost";
-    buildMachinesFiles = [];
+    #buildMachinesFiles = [];
     useSubstitutes = true;
   };
 
   security.acme.acceptTerms = true;
   security.acme.defaults.email = "aaronhoneycutt@proton.me";
-
-  # networking.hostName = "nixos"; # Define your hostname.
+  
+  networking.hostName = "nixos-server"; # Define your hostname.
   # Pick only one of the below networking options.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
   # networking.networkmanager.enable = true;  # Easiest to use and most distros use this by default.
@@ -78,24 +85,6 @@
   # Configure network proxy if necessary
   # networking.proxy.default = "http://user:password@proxy:port/";
   # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
-
-  # Select internationalisation properties.
-  # i18n.defaultLocale = "en_US.UTF-8";
-  # console = {
-  #   font = "Lat2-Terminus16";
-  #   keyMap = "us";
-  #   useXkbConfig = true; # use xkbOptions in tty.
-  # };
-
-  # Enable the X11 windowing system.
-  # services.xserver.enable = true;
-
-  # Configure keymap in X11
-  # services.xserver.layout = "us";
-  # services.xserver.xkbOptions = {
-  #   "eurosign:e";
-  #   "caps:escape" # map caps to escape.
-  # };
 
   # Enable CUPS to print documents.
   # services.printing.enable = true;
@@ -112,9 +101,11 @@
     isNormalUser = true;
     extraGroups = [ "wheel" "networkmanager" ]; # Enable ‘sudo’ for the user.
     packages = with pkgs; [
-      neofetch
-  #   firefox
-  #   thunderbird
+      cargo
+      flatpak
+      git
+      git-lfs
+      just
     ];
   };
 
@@ -136,9 +127,12 @@
 
   environment.systemPackages = with pkgs; [
     acme-sh
+    git
     inetutils
     mtr
+    neofetch
     sysstat
+    toybox
     tree
     wget
   ];
