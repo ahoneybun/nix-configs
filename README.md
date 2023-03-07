@@ -43,6 +43,7 @@ These files are for development such as LAMP and NGINX.
 - `lamp.nix` : This file is a WIP for LAMP setup. 
 - `ahoneybun-net.nix` : This file is a basic setup for my website (ahoneybun.net).
 - `hydra-ahoneybun-net.nix` : This file is a NGINX reverse proxy for my [Hydra](https://github.com/NixOS/hydra) server pointing to the localhost.
+- `mstdn-tildecafe-com.nix` : This file is for Mastodon on my tildecafe.com domain, simple changes can be made for a different domain.
 - `nginx-owncast.nix` : This file is a NGINX reverse proxy for [Owncast](https://owncast.online) though it is not currently working.
 
 ## Home Manager file: (nix-configs/home)
