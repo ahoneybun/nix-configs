@@ -69,7 +69,7 @@
   security.acme.acceptTerms = true;
   security.acme.defaults.email = "aaronhoneycutt@proton.me";
   
-  networking.hostName = "nixos-server"; # Define your hostname.
+  networking.hostName = "sovereign";
   # Pick only one of the below networking options.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
   # networking.networkmanager.enable = true;  # Easiest to use and most distros use this by default.
