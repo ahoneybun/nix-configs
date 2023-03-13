@@ -1,3 +1,7 @@
+# Edit this configuration file to define what should be installed on
+# your system.  Help is available in the configuration.nix(5) man page
+# and in the NixOS manual (accessible by running ‘nixos-help’).
+
 { config, pkgs, ... }:
 
 {
@@ -5,26 +9,16 @@
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
 #      ./unstable.nix
+      ./ahoneybun-net.nix
+      ./tildecafe-com.nix
+      ./rockymtnlug-org.nix
     ];
 
   boot.kernelPackages = pkgs.linuxPackages_latest;
   boot.kernelParams = [ "console=ttyS0,19200n8" ];
   
-  boot.binfmt.emulatedSystems = [ "aarch64-linux" ];
-
-  nix.settings.extra-platforms = [ "aarch64-linux" ];
   nix.settings.auto-optimise-store = true;
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
-
-  nix.buildMachines = [{ 
-     hostName = "localhost";
-     systems = ["x86_64-linux"
-                "aarch64-linux"
-                "x86_64-darwin"
-                "aarch64-darwin"];
-     supportedFeatures = ["kvm" "nixos-test" "big-parallel" "benchmark"];
-     maxJobs = 8;
-  }];
 
   nix.gc = {
     automatic = true;
@@ -52,19 +46,6 @@
     ''
       23.32.241.51 r3.o.lencr.org
     '';
-
-  fileSystems."/mnt/swapfile" =
-    { device = "/dev/disk/by-uuid/82672991-fe8a-485a-8dcf-7c8ae1282b6c";
-      fsType = "ext4";
-    };
-
-  services.hydra = {
-    enable = true;
-    hydraURL = "localhost:3000";
-    notificationSender = "hydra@localhost";
-    #buildMachinesFiles = [];
-    useSubstitutes = true;
-  };
 
   security.acme.acceptTerms = true;
   security.acme.defaults.email = "aaronhoneycutt@proton.me";
@@ -97,32 +78,16 @@
     extraGroups = [ "wheel" "networkmanager" ]; # Enable ‘sudo’ for the user.
     packages = with pkgs; [
       cargo
-      flatpak
       git
       git-lfs
       just
     ];
   };
 
-  users.users.nathanielw = {
-    isNormalUser = true;
-    extraGroups = [ "wheel" "networkmanager" ];
-    packages = with pkgs; [
-      neofetch
-    ];
-  };
-
-  users.users.builder = {
-    isNormalUser = true;
-    extraGroups = [ "wheel" ];
-    packages = with pkgs; [
-      neofetch 
-    ];
-  };
-
   environment.systemPackages = with pkgs; [
     acme-sh
     git
+    git-lfs
     inetutils
     mtr
     neofetch
