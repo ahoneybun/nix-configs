@@ -34,7 +34,7 @@ sudo nix-channel --update
 - `sovereign.nix` : This file is for the Linode instance that hosts https://stoners.space which is a Mastodon instance
 - `harbinger.nix` : This file is for the Linode instance that hosts the following sites:
    - https://ahoneybun.net/
-   - https://https://rockymountainlinuxfest.org/
+   - https://rockymountainlinuxfest.org/
    - https://tildecafe.com/
 - `oryp6.nix` : This file is mainly for my System76 Oryx Pro (oryp6) to add and enable the NVIDIA driver from stable
 - `rpi4.nix` : This file is to configure a Raspberry Pi 4B (Vetra Nyx)
