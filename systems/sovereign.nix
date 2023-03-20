@@ -1,7 +1,3 @@
-# Edit this configuration file to define what should be installed on
-# your system.  Help is available in the configuration.nix(5) man page
-# and in the NixOS manual (accessible by running ‘nixos-help’).
-
 { config, pkgs, ... }:
 
 {
@@ -58,13 +54,17 @@
       23.32.241.51 r3.o.lencr.org
     '';
 
-#  services.hydra = {
-#    enable = true;
-#    hydraURL = "localhost:3000";
-#    notificationSender = "hydra@localhost";
-    #buildMachinesFiles = [];
-#    useSubstitutes = true;
-#  };
+  # fileSystems."/mnt/swapfile" =
+  #   { device = "/dev/disk/by-uuid/82672991-fe8a-485a-8dcf-7c8ae1282b6c";
+  #     fsType = "ext4";
+  #   };
+
+  # services.hydra = {
+  #   enable = true;
+  #   hydraURL = "localhost:3000";
+  #   notificationSender = "hydra@localhost";
+  #   useSubstitutes = true;
+  # };
 
   security.acme.acceptTerms = true;
   security.acme.defaults.email = "aaronhoneycutt@proton.me";
@@ -84,10 +84,8 @@
     extraGroups = [ "wheel" "networkmanager" ]; # Enable ‘sudo’ for the user.
     packages = with pkgs; [
       cargo
-      flatpak
       git
       git-lfs
-      just
     ];
   };
 
@@ -101,18 +99,10 @@
 
   environment.systemPackages = with pkgs; [
     acme-sh
-#    bundler
     git
     inetutils
-    jekyll
     mtr
     neofetch
-#    ruby_3_1
-    rubyPackages_3_1.jekyll
-#    rubyPackages_3_1.jekyll-feed
-#    rubyPackages_3_1.jekyll-redirect-from
-#    rubyPackages_3_1.webrick
-#    rubyPackages.webrick
     sysstat
     toybox
     tree
@@ -122,7 +112,7 @@
   # Enable the OpenSSH daemon.
   services.openssh = {
     enable = true;
-  # permitRootLogin = "yes";
+    permitRootLogin = "no";
   };
 
   networking.usePredictableInterfaceNames = false;
