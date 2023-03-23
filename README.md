@@ -36,10 +36,12 @@ sudo nix-channel --update
    - https://ahoneybun.net/
    - https://rockymountainlinuxfest.org/
    - https://tildecafe.com/
-- `oryp6.nix` : This file is mainly for my System76 Oryx Pro (oryp6) to add and enable the NVIDIA driver from stable
+- `oryp6.nix` : This file is mainly for my work System76 Oryx Pro (oryp6) to add and enable the NVIDIA driver from stable
 - `rpi4.nix` : This file is to configure a Raspberry Pi 4B (Vetra Nyx)
 - `pinebook-pro.nix` : This file is to configure a PineBook Pro (Jaal Ama Darav)
 - `pinephone.nix` : This file is to configure a PinePhone (PeeBee)
+- `galp3-b.nix` : This file is for my personal System76 Galago Pro (galp3-b).
+- `galp4.nix` : This file is for my work System76 Galago Pro (galp4).
 
 ## Development Nix files: (nix-configs/dev)
 
@@ -48,7 +50,7 @@ These files are for development such as LAMP and NGINX.
 - `lamp.nix` : This file is a WIP for LAMP setup. 
 - `ahoneybun-net.nix` : This file is a basic setup for my website (ahoneybun.net).
 - `hydra-ahoneybun-net.nix` : This file is a NGINX reverse proxy for my [Hydra](https://github.com/NixOS/hydra) server pointing to the localhost.
-- `mstdn-tildecafe-com.nix` : This file is for Mastodon on my tildecafe.com domain, simple changes can be made for a different domain.
+- `stoners-space.nix` : This file is for Mastodon on my stoners.space domain, simple changes can be made for a different domain.
 - `nginx-owncast.nix` : This file is a NGINX reverse proxy for [Owncast](https://owncast.online) though it is not currently working.
 
 ## Home Manager file: (nix-configs/home)
