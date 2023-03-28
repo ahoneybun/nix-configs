@@ -62,6 +62,7 @@
          # Fonts
          fira
          fira-mono
+         firefox
          roboto-slab
 
          neofetch
