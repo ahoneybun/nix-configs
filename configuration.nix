@@ -16,6 +16,7 @@
 
    boot.loader = {
       systemd-boot.enable = true;
+      systemd-boot.consoleMode = "0";
    };
 
    boot.binfmt.emulatedSystems = [ "aarch64-linux" ];
