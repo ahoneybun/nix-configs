@@ -4,12 +4,9 @@
   environment.systemPackages = with pkgs; [
     alacritty # gpu accelerated terminal
     sway
-    dbus-sway-environment
-    configure-gtk
     wayland
     xdg-utils # for openning default programms when clicking links
     glib # gsettings
-    dracula-theme # gtk theme
     gnome3.adwaita-icon-theme  # default gnome cursors
     swaylock
     swayidle
