@@ -63,6 +63,8 @@
          fira
          fira-mono
          firefox
+         mdbook
+         restic
          roboto-slab
 
          neofetch
@@ -83,20 +85,16 @@
                just
                libcamera
                lshw
-               mdbook
                quickemu
                spice
                spice-gtk
                nix-index
-               restic
                toybox
                unzip
                wget
                xz
             ]; 
  
-   programs.git.lfs.enable = true;   
-
    # Enable/Disable hardware
    ## Turn off PulseAudio
    hardware.pulseaudio.enable = false;
