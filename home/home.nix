@@ -19,9 +19,6 @@
   nixpkgs.config.allowUnfree = true; 
 
   home.packages = with pkgs; [
-    keybase-gui
-    mattermost-desktop
-    neofetch
     spotify
     vscode
   ];
