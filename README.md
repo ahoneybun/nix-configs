@@ -43,13 +43,24 @@ sudo nix-channel --update
 - `galp3-b.nix` : This file is for my personal System76 Galago Pro (galp3-b).
 - `galp4.nix` : This file is for my work System76 Galago Pro (galp4).
 
+## Shell Nix files: (nix-configs/shell/)
+
+These files are for building software or for spinning something up like CUDA.
+
+- `cuda-shell.nix` : This file setups CUDA (currently 11.7).
+- `system-docs` : This is for building support.system76.com on NixOS for development.
+- `COSMIC` : This is for building COSMIC on NixOS, there is no way to actually use it on NixOS though with how systemd works.
+
 ## Web Nix files: (nix-configs/web/)
 
-These files are for development such as LAMP and NGINX.
+These files are for websites such as LAMP and NGINX.
 
 - `lamp.nix` : This file is a WIP for LAMP setup. 
 - `ahoneybun-net.nix` : This file is a basic setup for my website (ahoneybun.net).
 - `hydra-ahoneybun-net.nix` : This file is a NGINX reverse proxy for my [Hydra](https://github.com/NixOS/hydra) server pointing to the localhost.
+- `cloud-ahoneybun-net.nix` : This file is for Nextcloud.
+- `rockymtnlug-org.nix` : This file is for [RMLUG](https://rockymountainlinuxfest.org).
+- `tildecafe-com.nix` : This file is for [Tildecafe](https://tildecafe.com).
 - `stoners-space.nix` : This file is for Mastodon on my stoners.space domain, simple changes can be made for a different domain.
 - `nginx-owncast.nix` : This file is a NGINX reverse proxy for [Owncast](https://owncast.online) though it is not currently working.
 
