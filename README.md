@@ -10,7 +10,7 @@ These files are for the configuration, software that I use and unstable software
 - `programs.nix` : This file adds applications like Slack, Discord and virt-manager including turning on the services
 - `unstable.nix` : This file has the applications that need to be from unstable to work like ProtonVPN software
 
-## Desktop Nix files: (nix-configs/desktops)
+## Desktop Nix files: (nix-configs/desktops/)
 
 These files are for the desktops (DE or WM) that I use at times.
 
@@ -18,7 +18,7 @@ These files are for the desktops (DE or WM) that I use at times.
 - `gnome.nix` : This file is for the desktop and login manager
 - `pantheon.nix` : This file is for the desktop and login manager (this removes AppCenter)
 
-## System Nix files: (nix-configs/systems)
+## System Nix files: (nix-configs/systems/)
 
 These files are for the systems themselves such as my Pinebook Pro, Raspberry Pi 4B or HP Omen.
 
@@ -43,7 +43,7 @@ sudo nix-channel --update
 - `galp3-b.nix` : This file is for my personal System76 Galago Pro (galp3-b).
 - `galp4.nix` : This file is for my work System76 Galago Pro (galp4).
 
-## Development Nix files: (nix-configs/dev)
+## Web Nix files: (nix-configs/web/)
 
 These files are for development such as LAMP and NGINX.
 
@@ -53,12 +53,13 @@ These files are for development such as LAMP and NGINX.
 - `stoners-space.nix` : This file is for Mastodon on my stoners.space domain, simple changes can be made for a different domain.
 - `nginx-owncast.nix` : This file is a NGINX reverse proxy for [Owncast](https://owncast.online) though it is not currently working.
 
-## Home Manager file: (nix-configs/home)
+## Home Manager file: (nix-configs/home.nix)
 
 This file is for using with [Home Manager](https://nix-community.github.io/home-manager/index.html#sec-install-standalone).
 
 
 - `home.nix` : This file is for settings for my user like Git name/email and other settings
+
 ### Screenshots
 
 ![GNOME Installation](Screenshots/nixos-gnome.png)
