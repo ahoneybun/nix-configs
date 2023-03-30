@@ -82,7 +82,6 @@
                avahi
                cargo
                dmidecode
-               just
                libcamera
                lshw
                quickemu
