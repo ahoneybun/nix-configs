@@ -19,7 +19,6 @@
       systemd-boot.consoleMode = "0";
    };
 
-
    boot.initrd.luks.devices = {
       root = { 
       device = "/dev/sda";
