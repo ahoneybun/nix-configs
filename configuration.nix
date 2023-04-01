@@ -91,9 +91,6 @@
                dmidecode
                libcamera
                lshw
-               quickemu
-               spice
-               spice-gtk
                nix-index
                toybox
                unzip
