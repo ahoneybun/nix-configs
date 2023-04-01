@@ -16,10 +16,13 @@
             # Office
             google-chrome
             libreoffice-fresh
+            vscode
 
             # Work
             virt-manager
-            vscode
+            quickemu
+            spice
+            spice-gtk
 
             # Streaming
             obs-studio
