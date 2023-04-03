@@ -55,11 +55,6 @@
            hashedPassword = "$6$aAcbLtqiqzySifls$jdKMOQjoWITHD/dWNNZVUH/qNc6aoJ7v4zYofi0U7IJSVTbmOfChS3mzaJbp57AodjdPNKPrnrip8Nlh2Qanx.";
 
       packages = with pkgs; [
-         # Fonts
-         fira
-         fira-mono
-         restic
-
          neofetch
       ];
    };
@@ -71,11 +66,6 @@
    environment.systemPackages = 
            with pkgs; 
            [
-               avahi
-               cargo
-               dmidecode
-               libcamera
-               lshw
                nix-index
                toybox
                unzip
