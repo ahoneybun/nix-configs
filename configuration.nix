@@ -12,7 +12,6 @@
 
    # Latest kernel
    boot.kernelPackages = pkgs.linuxPackages_latest;
-   boot.kernelParams = [ "vfio-pci.ids=8086:9b41" "qxl" "bochs_drm"];
 
    boot.loader = {
       systemd-boot.enable = true;
