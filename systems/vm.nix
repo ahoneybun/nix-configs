@@ -19,13 +19,6 @@
       systemd-boot.consoleMode = "0";
    };
 
-   boot.initrd.luks.devices = {
-      root = { 
-      device = "/dev/sda";
-      preLVM = true;
-      };
-   };
-
    boot.binfmt.emulatedSystems = [ "aarch64-linux" ];
 
    nix.settings.extra-platforms = [ "aarch64-linux" ];
