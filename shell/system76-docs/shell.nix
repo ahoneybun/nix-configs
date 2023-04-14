@@ -1,7 +1,7 @@
 { pkgs ? import <nixpkgs> {} }:
   pkgs.mkShell {
-    nativeBuildInputs = [ 
-       pkgs.buildPackages.nodejs-16_x 
-       pkgs.buildPackages.nodePackages.npm
+    nativeBuildInputs = with pkgs; [ 
+       nodejs-16_x 
+       nodePackages.npm
        ];
 }

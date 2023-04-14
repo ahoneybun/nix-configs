@@ -12,6 +12,7 @@
 
    # Latest kernel
    boot.kernelPackages = pkgs.linuxPackages_latest;
+   boot.kernelParams = [ "vfio-pci.ids=8086:9b41" "qxl" "bochs_drm"];
 
    boot.loader = {
       systemd-boot.enable = true;
@@ -38,17 +39,6 @@
    # Enter keyboard layout
    services.xserver.layout = "us";
 
-   # Enable Flatpak
-   xdg = {
-      portal = {
-         enable = true;
-         extraPortals = with pkgs; [
-            xdg-desktop-portal-wlr
-            xdg-desktop-portal-kde
-         ];
-       };
-   };
-
    # Define user accounts
    users.users.aaronh = {
            description = "Aaron Honeycutt";
@@ -58,16 +48,7 @@
            hashedPassword = "$6$aAcbLtqiqzySifls$jdKMOQjoWITHD/dWNNZVUH/qNc6aoJ7v4zYofi0U7IJSVTbmOfChS3mzaJbp57AodjdPNKPrnrip8Nlh2Qanx.";
 
       packages = with pkgs; [
-         # Fonts
-         fira
-         fira-mono
-         firefox
-         mdbook
-         restic
-         roboto-slab
-
          neofetch
-         thunderbird
       ];
    };
     
@@ -78,11 +59,6 @@
    environment.systemPackages = 
            with pkgs; 
            [
-               avahi
-               cargo
-               dmidecode
-               libcamera
-               lshw
                nix-index
                toybox
                unzip
@@ -106,9 +82,6 @@
    # Enable Bluetooth
    hardware.bluetooth.enable = true;
 
-   # Enable services
-   services.flatpak.enable = true;
-   services.fwupd.enable = true;
    services.printing.enable = true;
    services.openssh.enable = true;
 

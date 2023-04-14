@@ -12,7 +12,7 @@
        egl-wayland
        glib
        gtk4
-       just
+       lld
        llvm
        llvmPackages_15.llvm
        libclang
