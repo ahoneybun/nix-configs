@@ -62,6 +62,13 @@
          fira
          fira-mono
          roboto-slab
+
+         # CLI
+         git
+         git-lfs
+         
+         # GUI
+         firefox
       ];
    };
     
