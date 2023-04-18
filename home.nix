@@ -19,8 +19,15 @@
   nixpkgs.config.allowUnfree = true; 
 
   home.packages = with pkgs; [
+    # GUI
+    firefox
     spotify
     vscode
+
+    # CLI
+    mdbook
+    neofetch
+    restic
   ];
 
   programs.bash = {
