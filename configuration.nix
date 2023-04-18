@@ -61,13 +61,7 @@
          # Fonts
          fira
          fira-mono
-         firefox
-         mdbook
-         restic
          roboto-slab
-
-         neofetch
-         thunderbird
       ];
    };
     
