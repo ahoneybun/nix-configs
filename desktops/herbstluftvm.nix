@@ -5,12 +5,16 @@
   services.xserver = {
     enable = true;
     displayManager.gdm.enable = true;
-    desktopManager.herbstluftvm.enable = true;
-  };
+    windowManager.herbstluftvm.enable = {
+      enable =true;
+      extraPackages = with pkgs; [
+        polybar # status bar
+        rofi # launcher
+     ];
+  }};
 
- environment.systemPackages = (with pkgs; [
-    polybar # status bar
-    rofi # launcher
+  environment.systemPackages = (with pkgs; [
+    firefox
   ]);
 }
 
