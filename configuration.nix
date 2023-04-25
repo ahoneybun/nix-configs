@@ -92,7 +92,6 @@
                libcamera
                lshw
                nix-index
-               toybox
                unzip
                wget
                xz
