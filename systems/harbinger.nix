@@ -91,7 +91,6 @@
     rubyPackages.jekyll-feed 
     rubyPackages.jekyll-redirect-from
     sysstat
-    toybox
     tree
     wget
   ];
