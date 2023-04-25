@@ -60,7 +60,6 @@
            with pkgs; 
            [
                nix-index
-               toybox
                unzip
                wget
                xz
