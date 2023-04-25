@@ -104,7 +104,6 @@
     mtr
     neofetch
     sysstat
-    toybox
     tree
     wget
   ];
