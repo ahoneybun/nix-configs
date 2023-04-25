@@ -1,11 +1,11 @@
 { config, pkgs, ... }: 
 
 {
-  # Start herbstluftvm
+  # Start herbstluftwm
   services.xserver = {
     enable = true;
     displayManager.gdm.enable = true;
-    windowManager.herbstluftvm.enable = true;
+    windowManager.herbstluftwm.enable = true;
   };
 
   environment.systemPackages = (with pkgs; [
