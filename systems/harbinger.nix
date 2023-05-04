@@ -83,7 +83,6 @@
     acme-sh
     git
     git-lfs
-    inetutils
     jekyll
     mtr
     neofetch
