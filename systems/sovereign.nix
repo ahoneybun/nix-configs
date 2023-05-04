@@ -100,7 +100,6 @@
   environment.systemPackages = with pkgs; [
     acme-sh
     git
-    inetutils
     mtr
     neofetch
     sysstat
