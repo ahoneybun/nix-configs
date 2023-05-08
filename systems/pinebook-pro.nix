@@ -64,7 +64,7 @@
    };
 
   networking = {
-    hostName = "pbp";
+    hostName = "jaal";
     networkmanager.enable = true;
   };
 
