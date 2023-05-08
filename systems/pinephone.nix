@@ -7,7 +7,7 @@
     <mobile-nixos/examples/phosh/phosh.nix>
   ];
 
-  networking.hostName = "Peebee";
+  networking.hostName = "peebee";
   time.timeZone = "America/Denver";
 
   #
