@@ -2,7 +2,7 @@
 
 {
     # Name your host machine
-    networking.hostName = "Garrus"; 
+    networking.hostName = "garrus"; 
 
     # System76
     hardware.system76.enableAll = true;
