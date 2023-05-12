@@ -57,7 +57,6 @@
       packages = with pkgs; [
          # Fonts
          fira
-         fira-mono
          restic
 
          neofetch
@@ -77,7 +76,6 @@
                libcamera
                lshw
                nix-index
-               toybox
                unzip
                wget
                xz
