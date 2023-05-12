@@ -39,8 +39,11 @@
             home = "/home/aaronh";
             extraGroups = [ "wheel" "networkmanager" "adm"];
             isNormalUser = true;
+            shell = pkgs.fish;
             hashedPassword = "$6$aAcbLtqiqzySifls$jdKMOQjoWITHD/dWNNZVUH/qNc6aoJ7v4zYofi0U7IJSVTbmOfChS3mzaJbp57AodjdPNKPrnrip8Nlh2Qanx.";
     };
+
+  programs.fish.enable = true;
 
   # Enable Pipewire
     security.rtkit.enable = true;
@@ -72,6 +75,5 @@
   # System 
   system.stateVersion = "22.11";
   system.autoUpgrade.enable = true;
-
 
 }
