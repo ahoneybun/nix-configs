@@ -7,6 +7,8 @@
 #       ./programs.nix
     ];
 
+  nix.settings.experimental-features = [ "nix-command" "flakes" ];
+
   fileSystems = {
     "/" = {
       device = "/dev/disk/by-label/NIXOS_SD";
