@@ -60,7 +60,6 @@
       packages = with pkgs; [
          # Fonts
          fira
-         fira-mono
          roboto-slab
 
          # CLI
