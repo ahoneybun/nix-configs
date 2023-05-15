@@ -1,66 +1,111 @@
 {
-  description = "ahoneybun's NixOS Flake";
+  description = "Vetra";
 
-  # This is the standard format for flake.nix. `inputs` are the dependencies of the flake,
-  # and `outputs` function will return all the build results of the flake. 
-  # Each item in `inputs` will be passed as a parameter to the `outputs` function after being pulled and built.
   inputs = {
-    # There are many ways to reference flake inputs. The most widely used is github:owner/name/reference,
-    # which represents the GitHub repository URL + branch/commit-id/tag.
-
-    # Official NixOS package source, using nixos-unstable branch here
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
-    # home-manager, used for managing user configuration
     home-manager = {
       url = "github:nix-community/home-manager/release-22.11";
-      # The `follows` keyword in inputs is used for inheritance.
-      # Here, `inputs.nixpkgs` of home-manager is kept consistent with the `inputs.nixpkgs` of the current flake,
-      # to avoid problems caused by different versions of nixpkgs dependencies.
       inputs.nixpkgs.follows = "nixpkgs";
     };
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
   };
 
-  # `outputs` are all the build result of the flake. 
-  # A flake can have many use cases and different types of outputs.
-  # parameters in `outputs` are defined in `inputs` and can be referenced by their names. 
-  # However, `self` is an exception, This special parameter points to the `outputs` itself (self-reference)
-  # The `@` syntax here is used to alias the attribute set of the inputs's parameter, making it convenient to use inside the function.
   outputs = { self, nixpkgs, nixos-hardware, ... }@inputs: {
-    # Outputs named `nixosConfigurations` is used by execute `nixos-rebuild switch --flake /path/to/flakes/directory` on NixOS System.
     nixosConfigurations = {
-      # By default, NixOS will try to refer the nixosConfiguration with its hostname.
-      # so the system named `nixos-test` will use this configuration.
-      # However, the configuration name can also be specified using `nixos-rebuild switch --flake /path/to/flakes/directory#<name>`.
-      # The `nixpkgs.lib.nixosSystem` function is used to build this configuration, the following attribute set is its parameter.
-      # Run `nixos-rebuild switch --flake .#nixos-test` in the flake's directory to deploy this configuration on any NixOS system
       "vetra" = nixpkgs.lib.nixosSystem {
         system = "aarch64-linux";
-
-        # The Nix module system can modularize configurations, improving the maintainability of configurations.
-        #
-        # Each parameter in the `modules` is a Nix Module, and there is a partial introduction to it in the nixpkgs manual:
-        #    <https://nixos.org/manual/nixpkgs/unstable/#module-system-introduction>
-        # It is said to be partial because the documentation is not complete, only some simple introductions
-        #    (such is the current state of Nix documentation...)
-        # A Nix Module can be an attribute set, or a function that returns an attribute set.
-        # If a Module is a function, according to the Nix Wiki description, this function can have up to four parameters:
-        # 
-        #   config: The configuration of the entire system
-        #   options: All option declarations refined with all definition and declaration references.
-        #   pkgs: The attribute set extracted from the Nix package collection and enhanced with the nixpkgs.config option.
-        #   modulesPath: The location of the module directory of Nix.
-        #
-        # Only these four parameters can be passed by default.
-        # If you need to pass other parameters, you must use `specialArgs` by uncomment the following line
-        # specialArgs = {...}  # pass custom arguments into sub module.
         modules = [
           # Import the configuration.nix we used before, so that the old configuration file can still take effect. 
           # Note: /etc/nixos/configuration.nix itself is also a Nix Module, so you can import it directly here
           nixos-hardware.nixosModules.raspberry-pi-4	
-          ./configuration.nix
-        ];
-      };
-    };
-  };
+#          ./configuration.nix
+
+        ({config, pkgs, ...}: {
+          fileSystems = {
+             "/" = {
+                device = "/dev/disk/by-label/NIXOS_SD";
+                fsType = "ext4";
+                options = [ "noatime" ];
+             };
+ 
+             "/mnt/ExtraDrive" = {
+                device = "/dev/disk/by-uuid/72315f9e-ceda-4152-8e8d-09590affba28";
+                fsType = "ext4";
+             };
+          };
+
+          nix = {
+             settings.auto-optimise-store = true;
+             settings.experimental-features = [ "nix-command" "flakes" ];
+ 
+             gc = {
+                automatic = true;
+                dates = "weekly";
+                options = "--delete-older-than 30d";
+             };
+          };
+
+          networking = {
+             hostName = "vetra";
+             networkmanager.enable = true;   
+          };
+
+          time.timeZone = "America/Denver";
+
+          environment.systemPackages = with pkgs; [
+             fish
+             git
+             neofetch
+             restic
+             wget
+          ];
+
+          users.users.aaronh = {
+             description = "Aaron Honeycutt";
+             home = "/home/aaronh";
+             extraGroups = [ "wheel" "networkmanager" "adm" ];
+             isNormalUser = true;
+             shell = pkgs.fish;
+             hashedPassword = "$6$aAcbLtqiqzySifls$jdKMOQjoWITHD/dWNNZVUH/qNc6aoJ7v4zYofi0U7IJSVTbmOfChS3mzaJbp57AodjdPNKPrnrip8Nlh2Qanx.";
+          };
+
+          programs.fish.enable = true;
+
+          # Enable Pipewire
+          security.rtkit.enable = true;
+          services.pipewire = {
+             enable = true;
+             alsa.enable = true;
+             alsa.support32Bit = true;
+             pulse.enable = true;
+          };
+          
+          # Turn off PulseAudio 
+          hardware.pulseaudio.enable = false;
+
+          # Enable Bluetooth
+          hardware.bluetooth.enable = true;
+
+          # Enable SSH
+          services.openssh.enable = true;
+
+          # Enable CUPS
+          services.printing.enable = true;
+
+          # Enable GPU Acceleration
+          hardware.raspberry-pi."4".fkms-3d.enable = true;
+
+          # Allow Unfree
+          nixpkgs.config.allowUnfree = true;
+
+          # System
+          system = {
+             stateVersion = "22.11";
+             autoUpgrade.enable = true;
+          };  
+         })
+       ];
+     };
+   };
+ };
 }
