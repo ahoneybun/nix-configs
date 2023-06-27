@@ -141,9 +141,11 @@
             openFirewall = true;
           };
 
-          # System 
-          system.stateVersion = "23.05";
-          system.autoUpgrade.enable = true;
+          system = {
+            stateVersion = "23.05";
+            autoUpgrade.enable = true;
+          };
+        })
         ];
       };
     };
