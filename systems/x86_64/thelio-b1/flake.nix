@@ -1,0 +1,106 @@
+{
+  description = "thelio-b1";
+
+  inputs = {
+    nixpkgs.url = "github:NixOS/nixpkgs/nixos-23.05";
+  };
+
+  outputs = { self, nixpkgs, ... }@inputs: {
+    nixosConfigurations = {
+      "thelio-b1" = nixpkgs.lib.nixosSystem {
+        system = "x86_64-linux";
+        modules = [
+          # Import the configuration.nix we used before, so that the old configuration file can still take effect. 
+          # Note: /etc/nixos/configuration.nix itself is also a Nix Module, so you can import it directly here
+#          ./configuration.nix
+          ./hardware-configuration.nix
+
+          ({config, pkgs, ...}: {
+             nix = {
+                settings.auto-optimise-store = true;
+                settings.experimental-features = [ "nix-command" "flakes" ];
+           
+                gc = {
+                   automatic = true;
+                   dates = "weekly";
+                   options = "--delete-older-than 30d";
+                };
+             };
+
+             nixpkgs.config.allowUnfree = true; 
+
+             boot = {
+                kernelPackages = pkgs.linuxPackages_latest;
+                kernelParams = [ "console=ttyS0,1920n8" ];
+
+                binfmt.emulatedSystems = [ "aarch64-linux" ];
+
+                loader.systemd-boot.enable = true;
+                loader.systemd-boot.consoleMode = "0";
+             };
+             
+             networking = {
+                hostName = "thelio-b1";
+                networkmanager.enable = true;
+             };
+
+             users.users.aaronh = {
+                isNormalUser = true;
+                extraGroups = [ "wheel" "networkmanager" ]; # Enable ‘sudo’ for the user.
+                packages = with pkgs; [
+                   cargo
+                   git
+                   git-lfs
+                   mdbook
+                   neofetch
+                   restic
+                   roboto-slab
+
+                   firefox
+                ];
+             };
+
+             environment.systemPackages = with pkgs; [
+                avahi
+                dmidecode
+                libcamera
+                lshw
+                nix-index
+                sysstat
+                tree
+                unzip
+                wget
+             ];
+
+             hardware.pulseaudio.enable = false;
+             
+             security.rtkit.enable = true;
+             services.pipewire = {
+               enable = true;
+               alsa.enable = true;
+               alsa.support32Bit = true;
+               pulse.enable = true;
+             };
+
+             services = {
+               fwupd.enable = true;
+               printing.enable = true;
+               openssh.enable = true;
+             };
+ 
+             services.avahi = {
+               enable = true;
+               nssmdns = true;
+               openFirewall = true;
+             };
+  
+             system = {
+                stateVersion = "23.05";
+                autoUpgrade.enable = true;
+             };
+          })
+        ];
+      };
+    };
+  };
+}
