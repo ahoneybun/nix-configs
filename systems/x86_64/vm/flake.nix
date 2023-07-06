@@ -67,7 +67,14 @@
               ];
             };
 
-            environment.systemPackages = with pkgs; [
+            # GNOME
+            services.xserver = {
+              enable = true;
+              displayManager.gdm.enable = true;
+              desktopManager.gnome.enable = true;
+            };
+
+            environment.systemPackages = (with pkgs; [
               avahi
               dmidecode
               libcamera
@@ -77,17 +84,8 @@
               tree
               unzip
               wget
-            ];
 
-            # GNOME
-            services.xserver = {
-              enable = true;
-              displayManager.gdm.enable = true;
-              desktopManager.gnome.enable = true;
-            };
-
-            # Add GNOME packages
-            environment.systemPackages = (with pkgs; [
+              # Add GNOME packages
               gnome.dconf-editor
               gnome.gnome-tweaks
               gnomeExtensions.appindicator
