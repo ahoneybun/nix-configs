@@ -30,6 +30,13 @@
             nixpkgs.config.allowUnfree = true; 
 
             boot = {
+              initrd.luks.devices = {
+                root = { 
+                device = "/dev/sda";
+                preLVM = true;
+                };
+              };
+
               # kernelPackages = pkgs.linuxPackages_latest;
               kernelParams = [ "console=ttyS0,1920n8" ];
 
