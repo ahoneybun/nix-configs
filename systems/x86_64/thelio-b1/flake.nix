@@ -38,7 +38,7 @@
               };
               
               # kernelPackages = pkgs.linuxPackages_latest;
-              kernelParams = [ "console=ttyS0,1920n8" ];
+              # kernelParams = [ "console=ttyS0,1920n8" ];
 
               binfmt.emulatedSystems = [ "aarch64-linux" ];
 
