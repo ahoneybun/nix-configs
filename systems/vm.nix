@@ -73,6 +73,7 @@
                avahi
                cargo
                dmidecode
+               firefox
                libcamera
                lshw
                nix-index
