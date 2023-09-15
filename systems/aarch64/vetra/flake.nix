@@ -2,7 +2,7 @@
   description = "Vetra";
 
   inputs = {
-    nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
+    nixpkgs.url = "github:NixOS/nixpkgs/release-23.05";
     home-manager = {
       url = "github:nix-community/home-manager/release-22.11";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -100,7 +100,7 @@
 
           # System
           system = {
-             stateVersion = "22.11";
+             stateVersion = "23.05";
              autoUpgrade.enable = true;
           };  
          })
