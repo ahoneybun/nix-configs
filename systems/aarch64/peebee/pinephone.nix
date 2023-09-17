@@ -7,16 +7,27 @@
     <mobile-nixos/examples/phosh/phosh.nix>
   ];
 
-  networking.hostName = "peebee";
-  time.timeZone = "America/Denver";
+  fileSystems."/mnt/ExtraDrive" =
+    { device = "/dev/disk/by-uuid/631d2b85-2e0b-4740-8b45-6147cf15193f";
+      fsType = "ext4";
+    };
 
-  #
-  # Opinionated defaults
-  #
-  
-  # Use Network Manager
+  # Kernel changes
+  # boot.kernelPackages = pkgs.linuxPackages_latest;
+
+  nix.settings.auto-optimise-store = true;
+  nix.settings.experimental-features = [ "nix-command" "flakes" ];
+
+  nix.gc = {
+    automatic = true;
+    dates = "weekly";
+    options = "--delete-older-than 30d";
+  };
+
+  # NetworkManager
   networking.wireless.enable = false;
   networking.networkmanager.enable = true;
+  networking.hostName = "peebee";
   
   # SSH
   services.openssh = {
@@ -43,9 +54,7 @@
     user = "aaronh";
   };
 
-  #
-  # User configuration
-  #
+  time.timeZone = "America/Denver";
   
   users.users."aaronh" = {
     isNormalUser = true;
@@ -57,42 +66,26 @@
       "networkmanager"
       "video"
       "wheel"
-    ];    
-    
+    ];
+
   # GUI
   packages = with pkgs; [
-    deja-dup
-    foliate
-    headlines
-    gnome.gnome-clocks
-    gnome.gnome-calculator
-    gnome-feeds
-    gnome-photos
-    gnome-podcasts
-    lollypop
-    marker
-    phosh-mobile-settings
     portfolio-filemanager
-    spot
-    tootle
 
   # CLI
     grim
+    ];
+  }; 
 
-  ];
-};
-
-  # Remove non-friendly GNOME packages
+  # Remove GNOME packages
   environment.gnome.excludePackages = (with pkgs; [
   gnome-photos
   gnome-tour
   ]);
 
-  # This value determines the NixOS release from which the default
-  # settings for stateful data, like file locations and database versions
-  # on your system were taken. It‘s perfectly fine and recommended to leave
-  # this value at the release version of the first install of this system.
-  # Before changing this value read the documentation for this option
-  # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
+  environment.systemPackages = (with pkgs; [
+  # rest of your packages
+  ]);
+
   system.stateVersion = "23.05"; # Did you read the comment?
 }
