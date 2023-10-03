@@ -1,5 +1,5 @@
 {
-  description = "thelio-b1";
+  description = "Joker";
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/release-23.05";
@@ -7,7 +7,7 @@
 
   outputs = { self, nixpkgs, ... }@inputs: {
     nixosConfigurations = {
-      "thelio-b1" = nixpkgs.lib.nixosSystem {
+      "joker" = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
         modules = [
           # Import the configuration.nix we used before, so that the old configuration file can still take effect. 
@@ -47,7 +47,7 @@
             };
              
             networking = {
-              hostName = "thelio-b1";
+              hostName = "joker";
               networkmanager.enable = true;
             };
 
