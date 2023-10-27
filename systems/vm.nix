@@ -26,9 +26,6 @@
       };
    };
 
-   boot.binfmt.emulatedSystems = [ "aarch64-linux" ];
-
-   nix.settings.extra-platforms = [ "aarch64-linux" ];
    nix.settings.auto-optimise-store = true;
    nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
