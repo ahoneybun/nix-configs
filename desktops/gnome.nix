@@ -10,7 +10,6 @@
 
   # Add GNOME packages
   environment.systemPackages = (with pkgs; [
-    amberol
     gnome.dconf-editor
     gnome.gnome-tweaks
     gnomeExtensions.appindicator

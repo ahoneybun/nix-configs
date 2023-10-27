@@ -1,11 +1,16 @@
 { config, pkgs, lib, ... }:
 
 {
-  imports =
-    [
-       <nixos-hardware/raspberry-pi/4>
-#       ./programs.nix
+  imports = [
+#         <nixos-hardware/raspberry-pi/4>
+         ./home-assistant.nix
+#        ./gnome.nix
+#        ./programs.nix
     ];
+
+# boot.kernelPackages = pkgs.linuxPackages_latest;
+
+  nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
   fileSystems = {
     "/" = {
@@ -16,7 +21,7 @@
   };
 
   networking = {
-    hostName = "Vetra";
+    hostName = "vetra";
     networkmanager.enable = true;
   };
 
@@ -34,13 +39,16 @@
             ]; 
 
   # Define user accounts
-    users.extraUsers.aaronh = {
+    users.users.aaronh = {
             description = "Aaron Honeycutt";
             home = "/home/aaronh";
             extraGroups = [ "wheel" "networkmanager" "adm"];
             isNormalUser = true;
+            shell = pkgs.fish;
             hashedPassword = "$6$aAcbLtqiqzySifls$jdKMOQjoWITHD/dWNNZVUH/qNc6aoJ7v4zYofi0U7IJSVTbmOfChS3mzaJbp57AodjdPNKPrnrip8Nlh2Qanx.";
     };
+
+  programs.fish.enable = true;
 
   # Enable Pipewire
     security.rtkit.enable = true;
@@ -57,7 +65,7 @@
   # Enable Bluetooth
   hardware.bluetooth.enable = true;
 
-  # Enable the OpenSSH daemon
+  # Enable SSH
   services.openssh.enable = true;
 
   # Enable CUPS
@@ -69,9 +77,15 @@
   # Allow Unfree
   nixpkgs.config.allowUnfree = true;
 
+  services.hydra = {
+    enable = false;
+    hydraURL = "http://localhost:3000";
+    notificationSender = "hydra@localhost";
+    buildMachinesFiles = [];
+    useSubstitutes = true;
+  };
+  
   # System 
   system.stateVersion = "22.11";
   system.autoUpgrade.enable = true;
-
-
 }

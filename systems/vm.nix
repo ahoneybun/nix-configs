@@ -19,13 +19,6 @@
       systemd-boot.consoleMode = "0";
    };
 
-   boot.initrd.luks.devices = {
-      root = { 
-      device = "/dev/sda";
-      preLVM = true;
-      };
-   };
-
    boot.binfmt.emulatedSystems = [ "aarch64-linux" ];
 
    nix.settings.extra-platforms = [ "aarch64-linux" ];
@@ -55,10 +48,6 @@
            hashedPassword = "$6$aAcbLtqiqzySifls$jdKMOQjoWITHD/dWNNZVUH/qNc6aoJ7v4zYofi0U7IJSVTbmOfChS3mzaJbp57AodjdPNKPrnrip8Nlh2Qanx.";
 
       packages = with pkgs; [
-         # Fonts
-         fira
-         restic
-
          neofetch
       ];
    };
@@ -70,12 +59,6 @@
    environment.systemPackages = 
            with pkgs; 
            [
-               avahi
-               cargo
-               dmidecode
-               firefox
-               libcamera
-               lshw
                nix-index
                unzip
                wget

@@ -12,7 +12,6 @@
 
    # Latest kernel
    boot.kernelPackages = pkgs.linuxPackages_latest;
-   boot.kernelParams = [ "vfio-pci.ids=8086:9b41" "qxl" "bochs_drm"];
 
    boot.loader = {
       systemd-boot.enable = true;
@@ -66,16 +65,7 @@
            hashedPassword = "$6$aAcbLtqiqzySifls$jdKMOQjoWITHD/dWNNZVUH/qNc6aoJ7v4zYofi0U7IJSVTbmOfChS3mzaJbp57AodjdPNKPrnrip8Nlh2Qanx.";
 
       packages = with pkgs; [
-         # Fonts
-         fira
-         fira-mono
-         firefox
-         mdbook
-         restic
-         roboto-slab
-
          neofetch
-         thunderbird
       ];
    };
     
@@ -89,8 +79,13 @@
                avahi
                cargo
                dmidecode
+               fira
+               firefox
+               git
+               git-lfs         
                libcamera
                lshw
+               roboto-slab
                nix-index
                unzip
                wget
@@ -126,7 +121,7 @@
    };
 
    # System 
-   system.stateVersion = "22.11";
+   system.stateVersion = "23.05";
    system.autoUpgrade.enable = true;
 
 }

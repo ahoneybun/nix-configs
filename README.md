@@ -29,19 +29,12 @@ sudo nix-channel --add https://github.com/NixOS/nixos-hardware/archive/master.ta
 sudo nix-channel --update
 ```
 
-- `hp-omen.nix` : This file is mainly for my HP Omen to add and enable the NVIDIA driver from stable
 - `linode.nix` : This file is for a Linode instance though it might work for other server setups
 - `sovereign.nix` : This file is for the Linode instance that hosts https://stoners.space which is a Mastodon instance
 - `harbinger.nix` : This file is for the Linode instance that hosts the following sites:
    - https://ahoneybun.net/
    - https://rockymountainlinuxfest.org/
    - https://tildecafe.com/
-- `oryp6.nix` : This file is mainly for my work System76 Oryx Pro (oryp6) to add and enable the NVIDIA driver from stable
-- `rpi4.nix` : This file is to configure a Raspberry Pi 4B (Vetra Nyx)
-- `pinebook-pro.nix` : This file is to configure a PineBook Pro (Jaal Ama Darav)
-- `pinephone.nix` : This file is to configure a PinePhone (PeeBee)
-- `galp3-b.nix` : This file is for my personal System76 Galago Pro (galp3-b).
-- `galp4.nix` : This file is for my work System76 Galago Pro (galp4).
 
 ## Shell Nix files: (nix-configs/shell/)
 

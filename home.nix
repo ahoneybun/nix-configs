@@ -14,13 +14,18 @@
   # You can update Home Manager without changing this value. See
   # the Home Manager release notes for a list of state version
   # changes in each release.
-  home.stateVersion = "22.11";
+  home.stateVersion = "23.05";
 
   nixpkgs.config.allowUnfree = true; 
 
   home.packages = with pkgs; [
+    # GUI
     spotify
     vscode
+
+    # CLI
+    mdbook
+    neofetch
   ];
 
   programs.bash = {
@@ -62,7 +67,6 @@
 
   programs.command-not-found.enable = true; 
 
-  programs.firefox.enable = true;
   programs.gh.enable = true;
 
   # Let Home Manager install and manage itself.
