@@ -13,8 +13,6 @@
     gnome.dconf-editor
     gnome.gnome-tweaks
     gnomeExtensions.appindicator
-    gnomeExtensions.pop-shell
-    gnomeExtensions.pop-launcher-super-key
   ]);
 
   # Remove GNOME packages
