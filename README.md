@@ -17,10 +17,24 @@ These files are for the desktops (DE or WM) that I use at times.
 - `plasma.nix` : This file is for the desktop, login manager and other KDE applications
 - `gnome.nix` : This file is for the desktop and login manager
 - `pantheon.nix` : This file is for the desktop and login manager (this removes AppCenter)
+- `sway.nix` : This file is for the Sway WM
 
 ## System Nix files: (nix-configs/systems/)
 
 These files are for the systems themselves such as my Pinebook Pro, Raspberry Pi 4B or HP Omen.
+
+### x86_64 Nix files: (nix-configs/systems/x86_64/)
+
+- `shepard.nix` : This file is for my custom desktop at home.
+- `garrus.nix` : This file is for my System76 Galago Pro (galp3-b).
+- `sovereign.nix` : This file is for a Linode instance but it could be for other VPS services as well.
+- `harbinger.nix` : This file is for a Linode instance but it could be for other VPS services as well.
+
+### aarch64 Nix files: (nix-configs/systems/aarch64/)
+
+- `jaal.nix` : This file is for my Pinebook Pro.
+- `peebee.nix` : This file is for my PinePhone.
+- `vetra.nix` : This file is for my Pi 4B.
 
 ### Use the nixos-hardware channel for Pinebook Pro and Raspberry Pi 4:
 
@@ -28,13 +42,6 @@ These files are for the systems themselves such as my Pinebook Pro, Raspberry Pi
 sudo nix-channel --add https://github.com/NixOS/nixos-hardware/archive/master.tar.gz nixos-hardware
 sudo nix-channel --update
 ```
-
-- `linode.nix` : This file is for a Linode instance though it might work for other server setups
-- `sovereign.nix` : This file is for the Linode instance that hosts https://stoners.space which is a Mastodon instance
-- `harbinger.nix` : This file is for the Linode instance that hosts the following sites:
-   - https://ahoneybun.net/
-   - https://rockymountainlinuxfest.org/
-   - https://tildecafe.com/
 
 ## Shell Nix files: (nix-configs/shell/)
 
