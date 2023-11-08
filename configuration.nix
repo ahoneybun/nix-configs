@@ -75,6 +75,26 @@
        nix-upgrade = "sudo nixos-rebuild switch --upgrade";
      };
    };
+
+   programs.git = {
+     lfs.enable = true;
+     config = {
+        color = {
+           ui = "auto";
+        };
+        color.status = {
+          added = "green bold";
+          changed = "yellow bold";
+          untracked = "red bold";
+        };
+        push = {
+          autoSetupRemote = "true";
+        };
+        init = {
+           defaultBranch = "main";
+        };
+      };
+   };
     
    # Allow Unfree
    nixpkgs.config.allowUnfree = true;
