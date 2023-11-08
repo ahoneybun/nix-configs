@@ -68,6 +68,13 @@
          neofetch
       ];
    };
+
+   programs.bash = {
+     shellAliases = {
+       generations = "sudo nix-env -p /nix/var/nix/profiles/system --list-generations";
+       nix-upgrade = "sudo nixos-rebuild switch --upgrade";
+     };
+   };
     
    # Allow Unfree
    nixpkgs.config.allowUnfree = true;
