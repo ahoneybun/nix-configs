@@ -10,7 +10,7 @@
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
   };
 
-  outputs = { self, nixpkgs, nixos-hardware, ... }@inputs: {
+  outputs = { self, nixpkgs, home-manager, nixos-hardware, ... }@inputs: {
     nixosConfigurations = {
       "shepard" = nixpkgs.lib.nixosSystem {
         system = "aarch64-linux";
@@ -20,6 +20,7 @@
 #          nixos-hardware.nixosModules.raspberry-pi-4	
 #          ./configuration.nix
           ./hardware-configuration.nix
+          ./gnome.nix
 
         ({config, pkgs, ...}: {
 
@@ -82,6 +83,11 @@
              isNormalUser = true;
              shell = pkgs.fish;
              hashedPassword = "$6$aAcbLtqiqzySifls$jdKMOQjoWITHD/dWNNZVUH/qNc6aoJ7v4zYofi0U7IJSVTbmOfChS3mzaJbp57AodjdPNKPrnrip8Nlh2Qanx.";
+
+             packages = with pkgs; [
+                signal-desktop
+                youtube-music
+             ];
           };
 
           programs.fish.enable = true;
