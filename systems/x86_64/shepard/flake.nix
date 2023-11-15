@@ -2,18 +2,16 @@
   description = "Shepard";
 
   inputs = {
-    nixpkgs.url = "github:NixOS/nixpkgs/release-23.05";
-    home-manager = {
-      url = "github:nix-community/home-manager/release-23.05";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
+#    nixpkgs.url = "github:NixOS/nixpkgs/release-23.05";
+    nixpkgs-unstable.url = "github:NixOS/nixpkgs/nixos-unstable";
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
   };
 
-  outputs = { self, nixpkgs, home-manager, nixos-hardware, ... }@inputs: {
+  outputs = { self, nixpkgs-unstable, nixos-hardware, ... }@inputs: {
     nixosConfigurations = {
-      "shepard" = nixpkgs.lib.nixosSystem {
+      "shepard" = nixpkgs-unstable.lib.nixosSystem {
         system = "x86_64-linux";
+        specialArgs = { inherit inputs; };
         modules = [
           # Import the configuration.nix we used before, so that the old configuration file can still take effect. 
           # Note: /etc/nixos/configuration.nix itself is also a Nix Module, so you can import it directly here
@@ -57,9 +55,11 @@
 
           time.timeZone = "America/Denver";
 
+          # Stable
           environment.systemPackages = with pkgs; [
              avahi
              cargo
+             cosmic-edit
              dmidecode
              fire
              firefox
@@ -118,7 +118,7 @@
 
           # System
           system = {
-             stateVersion = "23.05";
+             stateVersion = "23.11";
              autoUpgrade.enable = true;
           };  
          })
