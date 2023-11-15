@@ -25,10 +25,7 @@
       };
    };
 
-   boot.binfmt.emulatedSystems = [ "aarch64-linux" ];
-
-   nix.settings.extra-platforms = [ "aarch64-linux" ];
-   nix.settings.auto-optimise-store = true;
+   #nix.settings.auto-optimise-store = true;
    nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
    nix.gc = {
@@ -67,6 +64,33 @@
       packages = with pkgs; [
          neofetch
       ];
+   };
+
+   programs.bash = {
+     shellAliases = {
+       generations = "sudo nix-env -p /nix/var/nix/profiles/system --list-generations";
+       nix-upgrade = "sudo nixos-rebuild switch --upgrade";
+     };
+   };
+
+   programs.git = {
+     lfs.enable = true;
+     config = {
+        color = {
+           ui = "auto";
+        };
+        color.status = {
+          added = "green bold";
+          changed = "yellow bold";
+          untracked = "red bold";
+        };
+        push = {
+          autoSetupRemote = "true";
+        };
+        init = {
+           defaultBranch = "main";
+        };
+      };
    };
     
    # Allow Unfree

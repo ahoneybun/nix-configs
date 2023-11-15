@@ -11,6 +11,7 @@
        desktop-file-utils
        egl-wayland
        glib
+       gtk3
        gtk4
        lld
        llvm
