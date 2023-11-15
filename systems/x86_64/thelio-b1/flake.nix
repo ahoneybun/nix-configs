@@ -40,8 +40,6 @@
               # kernelPackages = pkgs.linuxPackages_latest;
               # kernelParams = [ "console=ttyS0,1920n8" ];
 
-              binfmt.emulatedSystems = [ "aarch64-linux" ];
-
               loader.systemd-boot.enable = true;
               loader.systemd-boot.consoleMode = "0";
             };
