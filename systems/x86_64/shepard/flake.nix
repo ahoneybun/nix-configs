@@ -13,7 +13,7 @@
   outputs = { self, nixpkgs, home-manager, nixos-hardware, ... }@inputs: {
     nixosConfigurations = {
       "shepard" = nixpkgs.lib.nixosSystem {
-        system = "aarch64-linux";
+        system = "x86_64-linux";
         modules = [
           # Import the configuration.nix we used before, so that the old configuration file can still take effect. 
           # Note: /etc/nixos/configuration.nix itself is also a Nix Module, so you can import it directly here
