@@ -9,6 +9,7 @@
     ];
 
   boot.kernelPackages = pkgs.linuxPackages_latest;
+  boot.kernelParams = [ "console=tty0" ];
 
   boot.loader = {
     efi = {
