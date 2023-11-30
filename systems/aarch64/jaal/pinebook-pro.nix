@@ -25,6 +25,13 @@
     };
   };
 
+  boot.initrd.luks.devices = {
+    root = { 
+    device = "/dev/sda";
+    preLVM = true;
+    };
+  };
+
   boot.initrd.kernelModules = [
     # Rockchip modules
     "rockchip_rga"
