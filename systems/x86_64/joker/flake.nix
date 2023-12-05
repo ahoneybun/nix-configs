@@ -50,7 +50,10 @@
             };
 
             users.users.aaronh = {
+              description = "Aaron Honeycutt";
+              home = "/home/aaronh";
               isNormalUser = true;
+              shell = pkgs.fish;
               extraGroups = [ "wheel" "networkmanager" ]; # Enable ‘sudo’ for the user.
               packages = with pkgs; [
                 cargo
@@ -60,8 +63,15 @@
                 neofetch
                 restic
                 roboto-slab
+                rustc
+                
+                # GUI
+                signal-desktop
+                youtube-music
               ];
             };
+
+            programs.fish.enable = true;
 
             environment.systemPackages = with pkgs; [
               avahi
