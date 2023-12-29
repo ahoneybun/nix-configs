@@ -7,6 +7,7 @@
    imports =
        [
            ./hardware-configuration.nix
+           disko
 #           ./programs.nix
        ];
 
@@ -19,12 +20,12 @@
       systemd-boot.consoleMode = "0";
    };
 
-      boot.initrd.luks.devices = {
-      root = { 
-      device = "/dev/sda";
-      preLVM = true;
-      };
-   };
+   #   boot.initrd.luks.devices = {
+   #   root = { 
+   #   device = "/dev/sda";
+   #   preLVM = true;
+   #   };
+   #};
 
    #nix.settings.auto-optimise-store = true;
    nix.settings.experimental-features = [ "nix-command" "flakes" ];
