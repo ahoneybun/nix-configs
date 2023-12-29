@@ -7,6 +7,7 @@
    imports =
        [
            ./hardware-configuration.nix
+            disko
 #           ./programs.nix
        ];
 
@@ -16,13 +17,6 @@
    boot.loader = {
       systemd-boot.enable = true;
       systemd-boot.consoleMode = "0";
-   };
-
-      boot.initrd.luks.devices = {
-      root = { 
-      device = "/dev/sda";
-      preLVM = true;
-      };
    };
 
    #nix.settings.auto-optimise-store = true;
