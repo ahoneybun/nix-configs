@@ -7,7 +7,6 @@
    imports =
        [
            ./hardware-configuration.nix
-           disko
 #           ./programs.nix
        ];
 
