@@ -7,6 +7,8 @@
    imports =
        [
            ./hardware-configuration.nix
+           "${builtins.fetchTarball "https://github.com/nix-community/disko/archive/master.tar.gz"}/module.nix"
+           ./disko-config.nix
 #           ./programs.nix
        ];
 
@@ -17,13 +19,6 @@
    boot.loader = {
       systemd-boot.enable = true;
       systemd-boot.consoleMode = "0";
-   };
-
-      boot.initrd.luks.devices = {
-      root = { 
-      device = "/dev/sda";
-      preLVM = true;
-      };
    };
 
    #nix.settings.auto-optimise-store = true;
