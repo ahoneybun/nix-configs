@@ -148,7 +148,7 @@
 
    # Scanner support
    hardware.sane.enable = true;
-   hardware.sane.ExtraBackends = [ pkgs.sane-airscan ];
+   hardware.sane.extraBackends = [ pkgs.sane-airscan ];
    services.ipp-usb.enable = true;
 
    system.activationScripts.diff = {
