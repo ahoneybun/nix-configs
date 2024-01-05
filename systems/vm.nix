@@ -60,6 +60,7 @@
            with pkgs; 
            [
                nix-index
+               nvd
                unzip
                wget
                xz
@@ -88,10 +89,27 @@
       enable = true;
       nssmdns = true;
       openFirewall = true;
+         # Needed for detecting scanners
+         publish = {
+            enable = true;
+            addresses = true;
+            userServices = true;
+         };
+   };
+
+   # Scanner support
+   hardware.sane.enable = true;
+   hardware.sane.ExtraBackends = [ pkgs.sane-airscan ];
+   services.ipp-usb.enable = true;
+
+   system.activationScripts.diff = {
+     supportsDryActivation = true;
+     text = ''
+       ${pkgs.nvd}/bin/nvd --nix-bin-dir=${pkgs.nix}/bin diff /run/current-system "$systemConfig"
+     '';
    };
 
    # System 
-   system.stateVersion = "23.05";
+   system.stateVersion = "23.11";
    system.autoUpgrade.enable = true;
-
 }
