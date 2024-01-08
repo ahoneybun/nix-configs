@@ -2,7 +2,7 @@
   description = "VM";
 
   inputs = {
-    nixpkgs.url = "github:NixOS/nixpkgs/release-23.05";
+    nixpkgs.url = "github:NixOS/nixpkgs/release-23.11";
   };
 
   outputs = { self, nixpkgs, ... }@inputs: {
@@ -67,7 +67,7 @@
              };
 
              system = {
-                stateVersion = "23.05";
+                stateVersion = "23.11";
                 autoUpgrade.enable = true;
              };
           })
