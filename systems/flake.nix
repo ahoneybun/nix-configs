@@ -26,30 +26,30 @@
 
           ({config, pkgs, ...}: {
              nix = {
-                settings.auto-optimise-store = true;
-                settings.experimental-features = [ "nix-command" "flakes" ];
+               settings.auto-optimise-store = true;
+               settings.experimental-features = [ "nix-command" "flakes" ];
            
-                gc = {
-                   automatic = true;
-                   dates = "weekly";
-                   options = "--delete-older-than 30d";
-                };
+               gc = {
+                  automatic = true;
+                  dates = "weekly";
+                  options = "--delete-older-than 30d";
+               };
 
              };
 
              boot = {
-                kernelPackages = pkgs.linuxPackages_latest;
+               kernelPackages = pkgs.linuxPackages_latest;
 
-                loader = {
-                   systemd-boot.enable = true;
-                   systemd-boot.consoleMode = "0";
-                };
+               loader = {
+                  systemd-boot.enable = true;
+                  systemd-boot.consoleMode = "0";
+               };
 
              };
              
              networking = {
-                hostName = "vm";
-
+               hostName = "vm";
+               networkmanager.enable = true;
              };
 
              users.users.aaronh = {
@@ -63,12 +63,11 @@
              };
 
              environment.systemPackages = with pkgs; [
-                git
-                git-lfs
-                neofetch
-                nmcli
-                tree
-                wget
+               git
+               git-lfs
+               neofetch
+               tree
+               wget
              ];
         
              services.openssh = {
