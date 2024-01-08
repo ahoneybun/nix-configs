@@ -1,7 +1,7 @@
 { config, pkgs, ... }: 
 
 {
-  # GNOME
+  # COSMIC
   services.xserver = {
     enable = true;
     displayManager.gdm.enable = true;
