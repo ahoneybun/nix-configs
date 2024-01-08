@@ -66,6 +66,7 @@
                 git
                 git-lfs
                 neofetch
+                nmcli
                 tree
                 wget
              ];
