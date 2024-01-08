@@ -25,60 +25,60 @@
           ./hardware-configuration.nix
 
           ({config, pkgs, ...}: {
-             nix = {
-               settings.auto-optimise-store = true;
-               settings.experimental-features = [ "nix-command" "flakes" ];
+            nix = {
+              settings.auto-optimise-store = true;
+              settings.experimental-features = [ "nix-command" "flakes" ];
            
-               gc = {
-                  automatic = true;
-                  dates = "weekly";
-                  options = "--delete-older-than 30d";
-               };
+              gc = {
+                automatic = true;
+                dates = "weekly";
+                options = "--delete-older-than 30d";
+              };
 
-             };
+            };
 
-             boot = {
-               kernelPackages = pkgs.linuxPackages_latest;
+            boot = {
+              #kernelPackages = pkgs.linuxPackages_latest;
 
-               loader = {
-                  systemd-boot.enable = true;
-                  systemd-boot.consoleMode = "0";
-               };
+              loader = {
+                systemd-boot.enable = true;
+                systemd-boot.consoleMode = "0";
+              };
 
-             };
+            };
              
-             networking = {
-               hostName = "vm";
-               networkmanager.enable = true;
-             };
+            networking = {
+              hostName = "vm";
+              networkmanager.enable = true;
+            };
 
-             users.users.aaronh = {
-                isNormalUser = true;
-                extraGroups = [ "wheel" "networkmanager" ]; # Enable ‘sudo’ for the user.
-                packages = with pkgs; [
-                   cargo
-                   git
-                   git-lfs
-                ];
-             };
+            users.users.aaronh = {
+              isNormalUser = true;
+              extraGroups = [ "wheel" "networkmanager" ]; # Enable ‘sudo’ for the user.
+              packages = with pkgs; [
+                cargo
+                git
+                git-lfs
+              ];
+            };
 
-             environment.systemPackages = with pkgs; [
-               git
-               git-lfs
-               neofetch
-               tree
-               wget
-             ];
+            environment.systemPackages = with pkgs; [
+              git
+              git-lfs
+              neofetch
+              tree
+              wget
+            ];
         
-             services.openssh = {
-                enable = true;
-                settings.PermitRootLogin = "no";
-             };
+            services.openssh = {
+              enable = true;
+              settings.PermitRootLogin = "no";
+            };
 
-             system = {
-                stateVersion = "23.11";
-                autoUpgrade.enable = true;
-             };
+            system = {
+              stateVersion = "23.11";
+              autoUpgrade.enable = true;
+            };
           })
         ];
       };
