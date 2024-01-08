@@ -6,7 +6,7 @@
     disko = {
        url = github:nix-community/disko;
        inputs.nixpkgs.follows = "nixpkgs";
-    }
+    };
   };
 
   outputs = { self, nixpkgs, disko, ... }@inputs: {
