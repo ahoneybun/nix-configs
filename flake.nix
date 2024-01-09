@@ -3,17 +3,26 @@
 
   inputs = {
    nixpkgs.url = "github:NixOS/nixpkgs/release-23.11";
+     disko = {
+       url = github:nix-community/disko;
+       inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
-  outputs = { self, nixpkgs, ... }@inputs: {
-   nixosConfigurations = {
+  outputs = { self, nixpkgs, disko, ... }@inputs: {
+    nixosConfigurations = {
       "nixos" = nixpkgs.lib.nixosSystem {
-      system = "x86_64-linux";
-      modules = [
-         # Import the configuration.nix we used before, so that the old configuration file can still take effect. 
-         # Note: /etc/nixos/configuration.nix itself is also a Nix Module, so you can import it directly here
-         #./configuration.nix
-         ./hardware-configuration.nix
+        system = "x86_64-linux";
+        modules = [
+          # Import the configuration.nix we used before, so that the old configuration file can still take effect. 
+          # Note: /etc/nixos/configuration.nix itself is also a Nix Module, so you can import it directly here
+#          ./configuration.nix
+           disko.nixosModules.disko
+           ./disko-config.nix
+           {
+              _module.args.disks = [ "/dev/vda" ];
+           }
+          ./hardware-configuration.nix
 
           ({config, pkgs, ...}: {
             nix = {
