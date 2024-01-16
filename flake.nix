@@ -20,7 +20,8 @@
            {
               _module.args.disks = [ "/dev/vda" ];
            }
-          ./hardware-configuration.nix
+         ./configuration.nix
+         ./hardware-configuration.nix
         ];
       };
 
@@ -44,69 +45,5 @@
           ./hardware-configuration.nix
          ];
       };
-
-         {config, pkgs, ...}: {
-            nix = {
-               settings.auto-optimise-store = true;
-               settings.experimental-features = [ "nix-command" "flakes" ];
-           
-               gc = {
-                  automatic = true;
-                  dates = "weekly";
-                  options = "--delete-older-than 30d";
-               };
-            };
-
-            boot = {
-               kernelPackages = pkgs.linuxPackages_latest;
-
-               loader = {
-                  systemd-boot.enable = true;
-                  systemd-boot.consoleMode = "0";
-               };
-            };
-             
-            networking = {
-               hostName = "nixos";
-               networkmanager.enable = true;
-            };
-
-            users.users.aaronh = {
-               isNormalUser = true;
-               extraGroups = [ "wheel" "networkmanager" ]; # Enable ‘sudo’ for the user.
-               hashedPassword = "$6$aAcbLtqiqzySifls$jdKMOQjoWITHD/dWNNZVUH/qNc6aoJ7v4zYofi0U7IJSVTbmOfChS3mzaJbp57AodjdPNKPrnrip8Nlh2Qanx.";
-            };
-
-            environment.systemPackages = with pkgs; [
-               git
-               git-lfs
-               tree
-               wget
-            ];
-        
-            # Enable/Disable hardware
-            ## Turn off PulseAudio
-            hardware.pulseaudio.enable = false;
-
-            # Enable Pipewire
-            security.rtkit.enable = true;
-            services.pipewire = {
-               enable = true;
-               alsa.enable = true;
-               alsa.support32Bit = true;
-               pulse.enable = true;
-            };
-
-            services.openssh = {
-               enable = true;
-               settings.PermitRootLogin = "no";
-            };
-
-            system = {
-               stateVersion = "23.11";
-               autoUpgrade.enable = true;
-            };
-         };
-      };
-   };
+    };
 }
