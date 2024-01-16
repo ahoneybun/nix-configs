@@ -34,6 +34,7 @@
            }
           ./hardware-configuration.nix
          ];
+      };
 
       "dev-one" = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
@@ -54,6 +55,7 @@
            }
           ./hardware-configuration.nix
          ];
+      };
 
           ({config, pkgs, ...}: {
             nix = {
