@@ -45,5 +45,5 @@
           ./hardware-configuration.nix
          ];
       };
-    };
+   };
 }
