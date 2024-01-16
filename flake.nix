@@ -66,17 +66,11 @@
                isNormalUser = true;
                extraGroups = [ "wheel" "networkmanager" ]; # Enable ‘sudo’ for the user.
                hashedPassword = "$6$aAcbLtqiqzySifls$jdKMOQjoWITHD/dWNNZVUH/qNc6aoJ7v4zYofi0U7IJSVTbmOfChS3mzaJbp57AodjdPNKPrnrip8Nlh2Qanx.";
-               packages = with pkgs; [
-                  cargo
-                  git
-                  git-lfs
-               ];
             };
 
             environment.systemPackages = with pkgs; [
                git
                git-lfs
-               neofetch
                tree
                wget
             ];
