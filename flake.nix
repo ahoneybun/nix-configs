@@ -7,13 +7,9 @@
          url = github:nix-community/disko;
          inputs.nixpkgs.follows = "nixpkgs";
       };
-      home-manager = {
-         url = github:nix-community/home-manager;
-         inputs.nixpkgs.follows = "nixpkgs";
-      };
   };
 
-  outputs = { self, nixpkgs, disko, home-manager, ... }@inputs: {
+  outputs = { self, nixpkgs, disko, ... }@inputs: {
     nixosConfigurations = {
       "nixos" = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
@@ -24,17 +20,8 @@
            {
               _module.args.disks = [ "/dev/vda" ];
            }
-           # Add Home-manager
-           home-manager.nixosModules.home-manager
-           {
-              home-manager.useGlobalPkgs = true;
-              home-manager.useUserPackages = true;
-
-              home-manager.users.aaronh = import ./home.nix;
-           }
           ./hardware-configuration.nix
-         ];
-      };
+
 
       "dev-one" = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
@@ -57,7 +44,7 @@
          ];
       };
 
-          ({config, pkgs, ...}: {
+         ({config, pkgs, ...}: {
             nix = {
                settings.auto-optimise-store = true;
                settings.experimental-features = [ "nix-command" "flakes" ];
@@ -67,7 +54,6 @@
                   dates = "weekly";
                   options = "--delete-older-than 30d";
                };
-
             };
 
             boot = {
@@ -77,7 +63,6 @@
                   systemd-boot.enable = true;
                   systemd-boot.consoleMode = "0";
                };
-
             };
              
             networking = {
@@ -120,7 +105,7 @@
                stateVersion = "23.11";
                autoUpgrade.enable = true;
             };
-          })
+         })
         ];
       };
     };
