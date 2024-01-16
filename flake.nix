@@ -20,7 +20,7 @@
            {
               _module.args.disks = [ "/dev/vda" ];
            }
-         ./configuration.nix
+         #./configuration.nix
          ./hardware-configuration.nix
         ];
       };
