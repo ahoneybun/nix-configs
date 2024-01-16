@@ -31,9 +31,7 @@
                # Add Disko for disk management
                disko.nixosModules.disko
                ./disko-config.nix
-               {
-               _module.args.disks = [ "/dev/vda" ];
-               }
+               ./configuration.nix
                ./hardware-configuration.nix
             ];
          };
