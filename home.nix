@@ -16,13 +16,16 @@
   # changes in each release.
   home.stateVersion = "23.11";
 
-  nixpkgs.config.allowUnfree = true; 
+  nixpkgs.config.allowUnfreePredicate = pkg:
+    builtins.elem (lib.getName pkg) [
+      # Add additional package names here
+      "vscode"
+    ];
 
   home.packages = with pkgs; [
     # GUI
     #youtube-music
-    #vscode
-
+    
     # CLI
     mdbook
     neofetch
