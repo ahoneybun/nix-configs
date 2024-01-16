@@ -21,7 +21,8 @@
               _module.args.disks = [ "/dev/vda" ];
            }
           ./hardware-configuration.nix
-
+        ];
+      };
 
       "dev-one" = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
@@ -44,7 +45,7 @@
          ];
       };
 
-         ({config, pkgs, ...}: {
+         {config, pkgs, ...}: {
             nix = {
                settings.auto-optimise-store = true;
                settings.experimental-features = [ "nix-command" "flakes" ];
@@ -105,9 +106,7 @@
                stateVersion = "23.11";
                autoUpgrade.enable = true;
             };
-         })
-        ];
+         };
       };
-    };
-  };
+   };
 }
