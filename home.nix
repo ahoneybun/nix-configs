@@ -20,7 +20,7 @@
 
   home.packages = with pkgs; [
     # GUI
-    youtube-music
+    #youtube-music
     vscode
 
     # CLI
