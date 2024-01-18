@@ -43,6 +43,7 @@
                # Add Disko for disk management
                disko.nixosModules.disko
                ./disko-config.nix
+               ./vm.nix
                ./configuration.nix
                ./hardware-configuration.nix
                home-manager.nixosModules.home-manager
