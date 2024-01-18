@@ -27,7 +27,7 @@
     
     # CLI
     mdbook
-    pfetch
+    freshfetch
   ];
 
   programs.bash = {
