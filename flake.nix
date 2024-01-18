@@ -8,7 +8,7 @@
          inputs.nixpkgs.follows = "nixpkgs";
       };
       home-manager = {
-	 url = "github:nix-community/home-manager/master";
+         url = "github:nix-community/home-manager/release-23.11";
          inputs.nixpkgs.follows = "nixpkgs"; # Use system packages list where available
       };
    };
