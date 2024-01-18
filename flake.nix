@@ -8,9 +8,9 @@
          inputs.nixpkgs.follows = "nixpkgs";
       };
       home-manager = {
-	      url = "github:nix-community/home-manager/master";
-    	   inputs.nixpkgs.follows = "nixpkgs"; # Use system packages list where available
-	   };
+	 url = "github:nix-community/home-manager/master";
+         inputs.nixpkgs.follows = "nixpkgs"; # Use system packages list where available
+      };
    };
 
    outputs = { self, nixpkgs, disko, home-manager, ... }@inputs: {
