@@ -33,7 +33,7 @@
   programs.bash = {
     enable = true;
     shellAliases = {
-      generations = "sudo nix-env -p /nix/var/nix/profiles/system --list-generations";
+      nix-generations = "sudo nix-env -p /nix/var/nix/profiles/system --list-generations";
       nix-upgrade = "sudo nixos-rebuild switch --upgrade";
     };
   };
