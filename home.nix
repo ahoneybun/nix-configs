@@ -27,7 +27,7 @@
     
     # CLI
     mdbook
-    neofetch
+    pfetch
   ];
 
   programs.bash = {
