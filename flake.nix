@@ -32,6 +32,7 @@
                # Add Disko for disk management
                disko.nixosModules.disko
                ./disko-config.nix
+               ./gnome.nix
                ./configuration.nix
                ./hardware-configuration.nix
             ];
