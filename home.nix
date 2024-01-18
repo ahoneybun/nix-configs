@@ -16,9 +16,14 @@
   # changes in each release.
   home.stateVersion = "23.11";
 
+  nixpkgs.config = {
+    allowUnfree = true;
+  }
+
   home.packages = with pkgs; [
     # GUI
     #youtube-music
+    vscode
     
     # CLI
     mdbook
