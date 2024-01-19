@@ -37,6 +37,19 @@
                ./hardware-configuration.nix
             ];
          };
+         
+         "thelio-b1" = nixpkgs.lib.nixosSystem {
+            system = "x86_64-linux";
+            modules = [
+               # Add Disko for disk management
+               disko.nixosModules.disko
+               ./disko-config.nix
+               ./gnome.nix
+               ./thelio-nvidia.nix
+               ./configuration.nix
+               ./hardware-configuration.nix
+            ];
+         };
 
          "vm" = nixpkgs.lib.nixosSystem {
             system = "x86_64-linux";
