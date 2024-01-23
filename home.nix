@@ -22,6 +22,8 @@
 
   home.packages = with pkgs; [
     # GUI
+    discord
+    signal-desktop
     #youtube-music
     vscodium
     
