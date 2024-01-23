@@ -23,7 +23,7 @@
   home.packages = with pkgs; [
     # GUI
     #youtube-music
-    vscode
+    vscodium
     
     # CLI
     mdbook
