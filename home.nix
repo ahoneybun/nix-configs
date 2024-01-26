@@ -69,8 +69,17 @@
     };
   };
 
-  programs.command-not-found.enable = true; 
-
+  programs.nix-index = {
+     enable = true;
+     enableBashIntegration = true;
+  };  
+  
+  dconf.settings = { 
+     "org/gnome/desktop/peripherals/touchpad" = {
+        tap-to-click = true;
+     };
+  };
+  
   programs.gh.enable = true;
 
   # Let Home Manager install and manage itself.
