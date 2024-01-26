@@ -69,8 +69,26 @@
     };
   };
 
-  programs.command-not-found.enable = true; 
-
+  programs.nix-index = {
+     enable = true;
+     enableBashIntegration = true;
+  };  
+  
+  dconf.settings = { 
+    "org/gnome/shell" = {
+      favorite-apps = [ "nautilus.desktop" "gnome-terminal.desktop" "firefox.desktop" "codium.desktop" ];
+    };
+    "org/gnome/desktop/peripherals/touchpad" = {
+      tap-to-click = true;
+    };
+    "org/gnome/desktop/interface" = {
+      clock-show-seconds = true;
+      clock-show-weekday = true;
+      color-scheme = "prefer-dark";
+      enable-hot-corners = false;
+    };
+  };
+  
   programs.gh.enable = true;
 
   # Let Home Manager install and manage itself.
