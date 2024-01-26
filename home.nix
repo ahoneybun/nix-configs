@@ -23,7 +23,10 @@
   home.packages = with pkgs; [
     # GUI
     discord
+    libreoffice-fresh
     signal-desktop
+    system76-keyboard-configurator
+    tuba
     #youtube-music
     vscodium
     
@@ -68,27 +71,27 @@
       };
     };
   };
-
+  
   programs.nix-index = {
      enable = true;
      enableBashIntegration = true;
   };  
   
   dconf.settings = { 
-    "org/gnome/shell" = {
-      favorite-apps = [ "nautilus.desktop" "gnome-terminal.desktop" "firefox.desktop" "codium.desktop" ];
-    };
-    "org/gnome/desktop/peripherals/touchpad" = {
-      tap-to-click = true;
-    };
-    "org/gnome/desktop/interface" = {
-      clock-show-seconds = true;
-      clock-show-weekday = true;
-      color-scheme = "prefer-dark";
-      enable-hot-corners = false;
-    };
+     "org/gnome/shell" = {
+        favorite-apps = [ "nautilus.desktop" "gnome-terminal.desktop" "firefox.desktop" "codium.desktop" "signal-desktop.desktop" ];
+     };
+     "org/gnome/desktop/peripherals/touchpad" = {
+        tap-to-click = true;
+     };
+     "org/gnome/desktop/interface" = {
+        clock-show-seconds = true;
+        clock-show-weekday = true;
+        color-scheme = "prefer-dark";
+        enable-hot-corners = false;
+     };
   };
-  
+
   programs.gh.enable = true;
 
   # Let Home Manager install and manage itself.
