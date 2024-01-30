@@ -12,6 +12,7 @@
    boot.loader = {
       systemd-boot.enable = true;
       systemd-boot.consoleMode = "0";
+      systemd-boot.configurationLimit = 10;
    };
 
    #nix.settings.auto-optimise-store = true;
@@ -20,7 +21,7 @@
    nix.gc = {
      automatic = true;
      dates = "weekly";
-     options = "--delete-older-than 30d";
+     options = "--delete-older-than 1w";
    };
 
    networking.networkmanager.enable = true;
@@ -57,6 +58,7 @@
                git-lfs         
                libcamera
                lshw
+               restic
                roboto-slab
                nix-index
                nvd
