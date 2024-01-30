@@ -79,7 +79,7 @@
   
   dconf.settings = { 
      "org/gnome/shell" = {
-        favorite-apps = [ "nautilus.desktop" "gnome-terminal.desktop" "firefox.desktop" "codium.desktop" "signal-desktop.desktop" ];
+        favorite-apps = [ "nautilus.desktop" "org.gnome.Console.desktop" "firefox.desktop" "codium.desktop" "signal-desktop.desktop" ];
      };
      "org/gnome/desktop/peripherals/touchpad" = {
         tap-to-click = true;
