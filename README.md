@@ -6,9 +6,14 @@ This holds my .nix files for NixOS
 
 These files are for the configuration, software that I use and unstable software that I use, note that some systems like the Pinebook Pro will use a custom configuration file.
 
-- `configuration.nix` : This is the main file for the base system including some applications that I use
-- `programs.nix` : This file adds applications like Slack, Discord and virt-manager including turning on the services
-- `unstable.nix` : This file has the applications that need to be from unstable to work like ProtonVPN software
+- `flake.nix` : This is the main flake for system selection then that includes configuration, hardware-configuration (created during installation of NixOS), home-manager and Disko
+- `configuration.nix` : This is the main file for the base system
+
+## Partition Nix files: (nix-configs/partitions/)
+
+These files are for the partition layouts that I use.
+
+- `luks-btrfs-subvolumes.nix` : This is the main layout that I use for pretty much every system that I install NixOS on
 
 ## Desktop Nix files: (nix-configs/desktops/)
 
@@ -23,10 +28,13 @@ These files are for the desktops (DE or WM) that I use at times.
 
 These files are for the systems themselves such as my Pinebook Pro, Raspberry Pi 4B or HP Omen.
 
+**NOTE:** These are only really used to set the hostname, install the NVIDIA driver (like for thelio-nvidia) and such.
+
 ### x86_64 Nix files: (nix-configs/systems/x86_64/)
 
 - `shepard.nix` : This file is for my custom desktop at home.
 - `garrus.nix` : This file is for my System76 Galago Pro (galp3-b).
+- `thelio-nvidia.nix` : This file is for my work Thelio B1.
 - `sovereign.nix` : This file is for a Linode instance but it could be for other VPS services as well.
 - `harbinger.nix` : This file is for a Linode instance but it could be for other VPS services as well.
 
@@ -49,7 +57,6 @@ These files are for building software or for spinning something up like CUDA.
 
 - `cuda-shell.nix` : This file setups CUDA (currently 11.7).
 - `system-docs` : This is for building support.system76.com on NixOS for development.
-- `COSMIC` : This is for building COSMIC on NixOS, there is no way to actually use it on NixOS though with how systemd works.
 
 ## Web Nix files: (nix-configs/web/)
 
@@ -67,7 +74,6 @@ These files are for websites such as LAMP and NGINX.
 ## Home Manager file: (nix-configs/home.nix)
 
 This file is for using with [Home Manager](https://nix-community.github.io/home-manager/index.html#sec-install-standalone).
-
 
 - `home.nix` : This file is for settings for my user like Git name/email and other settings
 

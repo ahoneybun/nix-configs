@@ -14,24 +14,31 @@
   # You can update Home Manager without changing this value. See
   # the Home Manager release notes for a list of state version
   # changes in each release.
-  home.stateVersion = "23.05";
+  home.stateVersion = "23.11";
 
-  nixpkgs.config.allowUnfree = true; 
+  nixpkgs.config = {
+    allowUnfree = true;
+  };
 
   home.packages = with pkgs; [
     # GUI
-    spotify
-    vscode
-
+    discord
+    libreoffice-fresh
+    signal-desktop
+    system76-keyboard-configurator
+    tuba
+    #youtube-music
+    vscodium
+    
     # CLI
     mdbook
-    neofetch
+    freshfetch
   ];
 
   programs.bash = {
     enable = true;
     shellAliases = {
-      generations = "sudo nix-env -p /nix/var/nix/profiles/system --list-generations";
+      nix-generations = "sudo nix-env -p /nix/var/nix/profiles/system --list-generations";
       nix-upgrade = "sudo nixos-rebuild switch --upgrade";
     };
   };
@@ -64,8 +71,26 @@
       };
     };
   };
-
-  programs.command-not-found.enable = true; 
+  
+  programs.nix-index = {
+     enable = true;
+     enableBashIntegration = true;
+  };  
+  
+  dconf.settings = { 
+     "org/gnome/shell" = {
+        favorite-apps = [ "nautilus.desktop" "gnome-terminal.desktop" "firefox.desktop" "codium.desktop" "signal-desktop.desktop" ];
+     };
+     "org/gnome/desktop/peripherals/touchpad" = {
+        tap-to-click = true;
+     };
+     "org/gnome/desktop/interface" = {
+        clock-show-seconds = true;
+        clock-show-weekday = true;
+        color-scheme = "prefer-dark";
+        enable-hot-corners = false;
+     };
+  };
 
   programs.gh.enable = true;
 
