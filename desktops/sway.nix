@@ -18,7 +18,7 @@
     wdisplays # A graphical application for configuring displays in Wayland compositors
   ];
 
-    services.dbus.enable = true;
+  services.dbus.enable = true;
   xdg.portal = {
     enable = true;
     wlr.enable = true;
