@@ -13,6 +13,7 @@
     gnome.dconf-editor
     gnome.gnome-tweaks
     gnomeExtensions.appindicator
+    gedit
   ]);
 
   # Remove GNOME packages
