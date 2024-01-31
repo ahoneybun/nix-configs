@@ -28,8 +28,7 @@
     system76-keyboard-configurator
     tuba
     #youtube-music
-    vscodium
-    
+
     # CLI
     mdbook
     freshfetch
@@ -76,6 +75,14 @@
      enable = true;
      enableBashIntegration = true;
   };  
+
+  programs.vscode = {
+     enable = true;
+     package = pkgs.vscodium;
+     extensions = with pkgs.vscode-extensions; [
+        yzhang.markdown-all-in-one
+     ];
+  };
   
   dconf.settings = { 
      "org/gnome/shell" = {
