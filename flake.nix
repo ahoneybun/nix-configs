@@ -51,6 +51,7 @@
                disko.nixosModules.disko
                ./disko-config.nix
                ./gnome.nix
+               ./hp-omen.nix
                ./configuration.nix
                ./hardware-configuration.nix
                home-manager.nixosModules.home-manager
