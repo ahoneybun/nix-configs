@@ -1,5 +1,8 @@
 { pkgs, config, lib, cfg, ... }:
 
+# Thanks to Aires!
+# https://aires.fyi/blog/installing-a-custom-package-with-nix/
+
 let
 	backrest = pkgs.callPackage ./package.nix { inherit pkgs lib; };
 in
