@@ -1,5 +1,8 @@
 { pkgs, lib }:
 
+# Thanks to Aires!
+# https://aires.fyi/blog/installing-a-custom-package-with-nix/
+
 pkgs.stdenv.mkDerivation rec {
 	pname = "backrest";
 	version = "v0.11.0";
