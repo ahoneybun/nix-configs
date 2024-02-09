@@ -25,7 +25,6 @@
     libreoffice-fresh
     signal-desktop
     system76-keyboard-configurator
-    tuba
     #youtube-music
 
     # CLI
