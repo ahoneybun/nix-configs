@@ -63,9 +63,27 @@
             ];
          };
          
-
          "garrus" = nixpkgs.lib.nixosSystem {
             system = "x86_64-linux";
+            modules = [
+               # Add Disko for disk management
+               disko.nixosModules.disko
+               ./disko-config.nix
+               ./gnome.nix
+               ./garrus.nix
+               ./configuration.nix
+               ./hardware-configuration.nix
+               home-manager.nixosModules.home-manager
+               {
+                  home-manager.useGlobalPkgs = true;
+                  home-manager.useUserPackages = true;
+                  home-manager.users.aaronh = import ./home.nix;
+               }
+            ];
+         };
+         
+         "jaal" = nixpkgs.lib.nixosSystem {
+            system = "aarch64-linux";
             modules = [
                # Add Disko for disk management
                disko.nixosModules.disko
