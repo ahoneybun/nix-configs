@@ -90,7 +90,7 @@
                disko.nixosModules.disko
                ./disko-config.nix
                ./gnome.nix
-               ./garrus.nix
+               ./jaal.nix
                ./configuration.nix
                ./hardware-configuration.nix
                home-manager.nixosModules.home-manager
