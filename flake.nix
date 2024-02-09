@@ -14,7 +14,7 @@
       nixos-hardware.url = "github:NixOS/nixos-hardware/master";
    };
 
-   outputs = { self, nixpkgs, disko, home-manager, nixos-hardware ... }@inputs: {
+   outputs = { self, nixpkgs, disko, home-manager, nixos-hardware, ... }@inputs: {
       nixosConfigurations = {
          "nixos" = nixpkgs.lib.nixosSystem {
             system = "x86_64-linux";
