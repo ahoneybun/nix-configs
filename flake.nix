@@ -11,9 +11,10 @@
          url = "github:nix-community/home-manager/release-23.11";
          inputs.nixpkgs.follows = "nixpkgs"; # Use system packages list where available
       };
+      nixos-hardware.url = "github:NixOS/nixos-hardware/master";
    };
 
-   outputs = { self, nixpkgs, disko, home-manager, ... }@inputs: {
+   outputs = { self, nixpkgs, disko, home-manager, nixos-hardware ... }@inputs: {
       nixosConfigurations = {
          "nixos" = nixpkgs.lib.nixosSystem {
             system = "x86_64-linux";
@@ -98,6 +99,7 @@
                   home-manager.useUserPackages = true;
                   home-manager.users.aaronh = import ./home.nix;
                }
+               nixos-hardware.nixosModules.pine64-pinebook-pro
             ];
          };
 
