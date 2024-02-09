@@ -22,7 +22,6 @@
 
   home.packages = with pkgs; [
     # GUI
-    discord
     libreoffice-fresh
     signal-desktop
     system76-keyboard-configurator

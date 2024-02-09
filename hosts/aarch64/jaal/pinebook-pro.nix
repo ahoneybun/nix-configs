@@ -8,7 +8,6 @@
 #       ./programs.nix
     ];
 
-  boot.kernelPackages = pkgs.linuxPackages_latest;
   boot.kernelParams = [ "console=tty0" ];
 
   boot.loader = {
@@ -22,13 +21,6 @@
     efiSupport = true;
     version = 2;
     device = "nodev";
-    };
-  };
-
-  boot.initrd.luks.devices = {
-    root = { 
-    device = "/dev/sda";
-    preLVM = true;
     };
   };
 
@@ -63,74 +55,6 @@
     "rtc_rk808"
   ];
 
-  nix.settings.auto-optimise-store = true;
-  nix.settings.experimental-features = [ "nix-command" "flakes" ];
-  nix.gc = {
-     automatic = true;
-     dates = "weekly";
-     options = "--delete-older-than 30d";
-   };
-
-  networking = {
-    hostName = "jaal";
-    networkmanager.enable = true;
-  };
-
-  # Set your time zone.
-  time.timeZone = "America/Denver";
-
-  environment.systemPackages = 
-            with pkgs; 
-            [
-              firefox
-              git
-              git-lfs
-              neofetch
-              unzip
-              wget
-            ]; 
-
-  # Define user accounts
-    users.users.aaronh = {
-            description = "Aaron Honeycutt";
-            home = "/home/aaronh";
-            extraGroups = [ "wheel" "networkmanager" "adm"];
-            isNormalUser = true;
-            hashedPassword = "$6$aAcbLtqiqzySifls$jdKMOQjoWITHD/dWNNZVUH/qNc6aoJ7v4zYofi0U7IJSVTbmOfChS3mzaJbp57AodjdPNKPrnrip8Nlh2Qanx.";
-
-    packages = with pkgs; [
-      fish
-    ];
-
-    shell = pkgs.fish;
-    };
-
-  # Enable Pipewire
-    security.rtkit.enable = true;
-    services.pipewire = {
-      enable = true;
-      alsa.enable = true;
-      alsa.support32Bit = true;
-      pulse.enable = true;
-    };
- 
-  # Turn off PulseAudio
-  hardware.pulseaudio.enable = false;
-
-  # Enable Bluetooth
-  hardware.bluetooth.enable = true;
-
-  # Enable the OpenSSH daemon
-  services.openssh.enable = true;
-
-  # Enable CUPS
-  services.printing.enable = true;
-
-  # Allow Unfree
-  nixpkgs.config.allowUnfree = true;
-
-  # System 
-  system.stateVersion = "23.11";
-  system.autoUpgrade.enable = true;
+  networking.hostName = "jaal";
 
 }
