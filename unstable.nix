@@ -1,17 +1,7 @@
-{ config, pkgs, ...}:
-
-let
-  unstable = import
-    (builtins.fetchTarball https://github.com/nixos/nixpkgs/tarball/master)
-    # reuse the current configuration
-    { config = config.nixpkgs.config; };
-in
+{ unstable, config, pkgs, ... }:
 
 {
-  environment.systemPackages = with pkgs; [
-    unstable.rustc
-    unstable.just
-    unstable.cosmic-icons
-    unstable.cosmic-settings
+  environment.systemPackages = [
+     unstable.legacyPackages."${pkgs.system}".rustc
   ];
 }
