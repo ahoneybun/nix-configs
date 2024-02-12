@@ -22,14 +22,17 @@
 
   home.packages = with pkgs; [
     # GUI
+    deja-dup
+    discord
     libreoffice-fresh
     signal-desktop
-    system76-keyboard-configurator
+    tuba
     #youtube-music
-
+    
     # CLI
-    mdbook
+    btop
     freshfetch
+    gcc
   ];
 
   programs.bash = {
@@ -86,14 +89,20 @@
      "org/gnome/shell" = {
         favorite-apps = [ "nautilus.desktop" "org.gnome.Console.desktop" "firefox.desktop" "codium.desktop" "signal-desktop.desktop" ];
      };
-     "org/gnome/desktop/peripherals/touchpad" = {
-        tap-to-click = true;
+     "org/gnome/desktop/background" = {
+       picture-uri-dark = "file:///home/aaronh/Pictures/Walls/wallhaven-vqgxq8.jpg";
      };
      "org/gnome/desktop/interface" = {
         clock-show-seconds = true;
         clock-show-weekday = true;
         color-scheme = "prefer-dark";
         enable-hot-corners = false;
+     };
+     "org/gnome/desktop/peripherals/touchpad" = {
+        tap-to-click = true;
+     };
+     "org/gnome/desktop/vm/keybindings" = {
+        close = ["<Super>q"];
      };
   };
 
