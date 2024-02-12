@@ -2,10 +2,7 @@
 
 {
   imports = [
-#         <nixos-hardware/raspberry-pi/4>
-         ./home-assistant.nix
 #        ./gnome.nix
-#        ./programs.nix
     ];
 
   boot = {
