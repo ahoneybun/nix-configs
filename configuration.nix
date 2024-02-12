@@ -3,7 +3,8 @@
 {
    imports =
        [
-#           ./hardware-configuration.nix
+#            ./hardware-configuration.nix
+            ./swingmusic/swingmusic.nix
        ];
 
    # Latest kernel
@@ -14,6 +15,10 @@
       systemd-boot.consoleMode = "0";
       systemd-boot.configurationLimit = 10;
    };
+
+   boot.plymouth.enable = true;
+   boot.initrd.systemd.enable = true;
+   boot.kernelParams = [ "quiet" ];
 
    #nix.settings.auto-optimise-store = true;
    nix.settings.experimental-features = [ "nix-command" "flakes" ];
@@ -65,7 +70,14 @@
                unzip
                wget
                xz
+               zlib
             ]; 
+
+   programs.nix-ld.enable = true;
+   programs.nix-ld.libraries = with pkgs; [
+     # Add any missing dynamic libraries for unpackaged programs
+     # here, NOT in environment.systemPackages
+   ];
  
    # Enable/Disable hardware
    ## Turn off PulseAudio
@@ -104,6 +116,8 @@
    hardware.sane.enable = true;
    hardware.sane.extraBackends = [ pkgs.sane-airscan ];
    services.ipp-usb.enable = true;
+
+   services.hardware.bolt.enable = true;
 
    system.activationScripts.diff = {
      supportsDryActivation = true;
