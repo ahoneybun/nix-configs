@@ -4,7 +4,6 @@
    imports =
        [
 #            ./hardware-configuration.nix
-            ./swingmusic/swingmusic.nix
        ];
 
    # Latest kernel
