@@ -10,10 +10,15 @@
     initrd.availableKernelModules = [ "xhci_pci" "usbhid" "usb_storage" ];
 
     loader = {
+
       grub.enable = false;
+
       generic-extlinux-compatible.enable = true;
+
     };
   };
+
+# boot.kernelPackages = pkgs.linuxPackages_latest;
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
@@ -37,6 +42,7 @@
             with pkgs; 
             [
                 git
+                neofetch
                 restic
                 wget
             ]; 
