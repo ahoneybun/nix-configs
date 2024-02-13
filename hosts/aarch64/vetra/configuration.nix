@@ -2,11 +2,21 @@
 
 {
   imports = [
-#         <nixos-hardware/raspberry-pi/4>
-         ./home-assistant.nix
 #        ./gnome.nix
-#        ./programs.nix
     ];
+
+  boot = {
+    kernelPackages = pkgs.linuxKernel.packages.linux_rpi4;
+    initrd.availableKernelModules = [ "xhci_pci" "usbhid" "usb_storage" ];
+
+    loader = {
+
+      grub.enable = false;
+
+      generic-extlinux-compatible.enable = true;
+
+    };
+  };
 
 # boot.kernelPackages = pkgs.linuxPackages_latest;
 
@@ -31,7 +41,6 @@
   environment.systemPackages = 
             with pkgs; 
             [
-                fish
                 git
                 neofetch
                 restic
@@ -44,11 +53,8 @@
             home = "/home/aaronh";
             extraGroups = [ "wheel" "networkmanager" "adm"];
             isNormalUser = true;
-            shell = pkgs.fish;
             hashedPassword = "$6$aAcbLtqiqzySifls$jdKMOQjoWITHD/dWNNZVUH/qNc6aoJ7v4zYofi0U7IJSVTbmOfChS3mzaJbp57AodjdPNKPrnrip8Nlh2Qanx.";
     };
-
-  programs.fish.enable = true;
 
   # Enable Pipewire
     security.rtkit.enable = true;
@@ -70,10 +76,7 @@
 
   # Enable CUPS
   services.printing.enable = true;
-
-  # Enable GPU acceleration
-  hardware.raspberry-pi."4".fkms-3d.enable = true;
-
+  
   # Allow Unfree
   nixpkgs.config.allowUnfree = true;
 
@@ -86,6 +89,6 @@
   };
   
   # System 
-  system.stateVersion = "22.11";
+  system.stateVersion = "24.05";
   system.autoUpgrade.enable = true;
 }
