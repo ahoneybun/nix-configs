@@ -38,7 +38,7 @@ These files are for the systems themselves such as my Pinebook Pro, Raspberry Pi
 
 ### x86_64 Nix files: (nix-configs/systems/x86_64/)
 
-- `shepard.nix` : This file is for my custom desktop at home.
+- `shepard.nix` : This file is for my System76 nebula49.
 - `garrus.nix` : This file is for my System76 Galago Pro (galp3-b).
 - `thelio-nvidia.nix` : This file is for my work Thelio B1.
 - `sovereign.nix` : This file is for a Linode instance but it could be for other VPS services as well.
