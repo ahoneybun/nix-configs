@@ -12,7 +12,7 @@
    boot.loader = {
       systemd-boot.enable = true;
       systemd-boot.consoleMode = "0";
-      systemd-boot.configurationLimit = 10;
+      systemd-boot.configurationLimit = 5;
    };
 
    boot.plymouth.enable = true;
