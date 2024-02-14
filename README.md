@@ -50,13 +50,6 @@ These files are for the systems themselves such as my Pinebook Pro, Raspberry Pi
 - `peebee.nix` : This file is for my PinePhone.
 - `vetra.nix` : This file is for my Pi 4B.
 
-## Shell Nix files: (nix-configs/shell/)
-
-These files are for building software or for spinning something up like CUDA.
-
-- `cuda-shell.nix` : This file setups CUDA (currently 11.7).
-- `system76-docs` : This is for building support.system76.com on NixOS for development.
-
 ## Web Nix files: (nix-configs/web/)
 
 These files are for websites such as LAMP and NGINX.
