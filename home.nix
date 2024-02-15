@@ -14,7 +14,7 @@
   # You can update Home Manager without changing this value. See
   # the Home Manager release notes for a list of state version
   # changes in each release.
-  home.stateVersion = "23.11";
+  home.stateVersion = "24.05";
 
   nixpkgs.config = {
     allowUnfree = true;
@@ -41,6 +41,9 @@
       nix-generations = "sudo nix-env -p /nix/var/nix/profiles/system --list-generations";
       nix-upgrade = "sudo nixos-rebuild switch --upgrade";
     };
+    bashrcExtra = "eval `ssh-agent`\n
+                   ssh-add ~/.ssh/protonmail\n
+                   ssh-add ~/.ssh/system76";
   };
 
   programs.git = {
