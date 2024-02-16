@@ -46,7 +46,7 @@
             ];
          };
 
-         "edi" = nixpkgs.lib.nixosSystem {
+         "EDI" = nixpkgs.lib.nixosSystem {
             system = "x86_64-linux";
             modules = [
                # Add Disko for disk management
