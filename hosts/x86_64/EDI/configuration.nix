@@ -1,9 +1,11 @@
+  GNU nano 7.2                                                    /etc/nixos/edi.nix                                                               
 { config, pkgs, lib, ... }:
 
 {
   imports =
     [
         ./hardware-configuration.nix
+        #./home-assistant.nix
     ];
 
   boot.kernelParams = [ "console=tty0" ];
@@ -13,9 +15,7 @@
   nix.buildMachines = [{ 
      hostName = "localhost";
      systems = ["x86_64-linux"
-                "aarch64-linux"
-                "x86_64-darwin"
-                "aarch64-darwin"];
+                "aarch64-linux"];
      supportedFeatures = ["kvm" "nixos-test" "big-parallel" "benchmark"];
      maxJobs = 8;
   }];
@@ -23,12 +23,23 @@
   networking.hostName = "EDI";
   networking.firewall = {
     enable = true;
-    allowedTCPPorts = [ 80 443 ];
+    allowedTCPPorts = [ 80 443 3000 8123 ];
   };
 
+  nixpkgs.config.permittedInsecurePackages = [
+    "openssl-1.1.1w"
+  ];
+
   # Enable the OpenSSH daemon.
-  services.openssh = {
-    permitRootLogin = "no";
+  services.openssh.settings = {
+    PermitRootLogin = "no";
+  };
+
+  services.hydra = {
+    enable = true;
+    hydraURL = "localhost:3000";
+    notificationSender = "hydra@localhost";
+    useSubstitutes = true;
   };
 
 }
