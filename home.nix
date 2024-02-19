@@ -93,7 +93,7 @@
         favorite-apps = [ "nautilus.desktop" "org.gnome.Console.desktop" "firefox.desktop" "codium.desktop" "signal-desktop.desktop" ];
      };
      "org/gnome/desktop/background" = {
-       picture-uri-dark = "file:///home/aaronh/Pictures/Walls/wallhaven-vqgxq8.jpg";
+       picture-uri-dark = "file:///home/aaronh/Pictures/Walls/wallhaven-2y2wg6.png";
      };
      "org/gnome/desktop/interface" = {
         clock-show-seconds = true;
