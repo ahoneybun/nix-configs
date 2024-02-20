@@ -1,4 +1,4 @@
- config, pkgs, lib, ... }:
+{ config, pkgs, lib, ... }:
 
 {
   services.home-assistant = {
@@ -7,9 +7,13 @@
       "cast"
       "esphome"
       "google_translate"
+      "lacrosse"
+      "lacrosse_view"
       "met"
       "nest"
       "radio_browser"
+      "systemmonitor"
+      "tplink"
     ];
     config = {
       # Includes dependencies for a basic setup
