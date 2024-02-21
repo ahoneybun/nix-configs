@@ -8,10 +8,10 @@
    # Packages
    environment.systemPackages = with pkgs; [
       # Comms
-         slack
+      slack
 
       # Web
-         google-chrome
+      google-chrome
 
       # VM
       quickemu
