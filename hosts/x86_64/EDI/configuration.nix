@@ -1,4 +1,3 @@
-  GNU nano 7.2                                                    /etc/nixos/edi.nix                                                               
 { config, pkgs, lib, ... }:
 
 {
