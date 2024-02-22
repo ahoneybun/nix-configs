@@ -6,7 +6,7 @@ This holds my .nix files for NixOS
 
 These files are for the configuration, software that I use and unstable software that I use, note that some systems like the Pinebook Pro will use a custom configuration file.
 
-- `flake.nix` : This is the main flake for system selection then that includes configuration, hardware-configuration (created during installation of NixOS), home-manager and Disko
+- `flake.nix` : This is the main flake for system selection then that includes configuration, hardware-configuration (created during installation of NixOS), home-manager, disko and nixos-hardware (depending on the host)
 - `configuration.nix` : This is the main file for the base system
 
 ## Home Manager file: (nix-configs/home.nix)
@@ -66,6 +66,6 @@ These files are for websites such as LAMP and NGINX.
 
 ### Screenshots
 
-![GNOME Installation](Screenshots/nixos-gnome.png)
+![GNOME Installation](screenshots/nixos-gnome.png)
 
-![Pantheon Installation](Screenshots/nixos-pantheon.png)
+![Pantheon Installation](screenshots/nixos-pantheon.png)
