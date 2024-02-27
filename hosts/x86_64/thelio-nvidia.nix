@@ -13,6 +13,11 @@
     hardware.nvidia.package = config.boot.kernelPackages.nvidiaPackages.stable;
     hardware.nvidia.modesetting.enable = true;
 
+    hardware.opengl = {
+      extraPackages = with pkgs; [ nvidia-vaapi-driver ];
+      extraPackages32 = with pkgs.pkgsi686Linux; [ nvidia-vaapi-driver ];
+   };
+
     # Allow Unfree
     nixpkgs.config.allowUnfree = true;
 }
