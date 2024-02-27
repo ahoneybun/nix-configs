@@ -4,8 +4,10 @@
     # Name your host machine
     networking.hostName = "shepard"; 
 
-    ## Enable 32 Bit libraries for applications like Steam
-    hardware.opengl.driSupport32Bit = true;
+    hardware.opengl = {
+        extraPackages = with pkgs; [ libvdpau-va-gl ];
+        driSupport32Bit = true;
+    };
 
     # Allow Unfree
     nixpkgs.config.allowUnfree = true;
