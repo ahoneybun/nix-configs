@@ -41,9 +41,7 @@
       nix-generations = "sudo nix-env -p /nix/var/nix/profiles/system --list-generations";
       nix-upgrade = "sudo nixos-rebuild switch --upgrade";
     };
-    bashrcExtra = "eval `ssh-agent`\n
-                   ssh-add ~/.ssh/protonmail\n
-                   ssh-add ~/.ssh/system76";
+    bashrcExtra = "eval `ssh-agent`";
   };
 
   programs.git = {
