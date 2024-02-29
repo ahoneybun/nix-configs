@@ -12,6 +12,8 @@
     environment.systemPackages = 
             with pkgs; 
             [
-               btop
+               kdePackages.dragon
+               kdePackages.merkuro
+               kdePackages.neochat
             ];
 }
