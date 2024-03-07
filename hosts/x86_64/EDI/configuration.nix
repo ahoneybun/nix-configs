@@ -22,7 +22,7 @@
   networking.hostName = "EDI";
   networking.firewall = {
     enable = true;
-    allowedTCPPorts = [ 80 443 3000 8123 ];
+    allowedTCPPorts = [ 80 443 3000 8096 8123 ];
   };
 
   nixpkgs.config.permittedInsecurePackages = [
