@@ -4,7 +4,7 @@
   imports = [
     (import <mobile-nixos/lib/configuration.nix> { device = "oneplus-fajita"; })
     ./hardware-configuration.nix
-    <mobile-nixos/examples/phosh/phosh.nix>
+    <mobile-nixos/examples/plasma-mobile/plasma-mobile.nix>
   ];
 
   # Kernel changes
