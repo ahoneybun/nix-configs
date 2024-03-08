@@ -5,14 +5,20 @@
     enable = true;
     extraComponents = [
       "cast"
+      "cloud"
+      "enphase_envoy"
       "esphome"
       "google_translate"
+      "homekit_controller"
+      "jellyfin"
       "lacrosse"
       "lacrosse_view"
+      "litterrobot"
       "met"
       "nest"
       "radio_browser"
       "systemmonitor"
+      "thread"
       "tplink"
     ];
     config = {
