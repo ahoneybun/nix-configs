@@ -2,13 +2,13 @@
    description = "Generic System Flake file";
 
    inputs = {
-      nixpkgs.url = "github:NixOS/nixpkgs/release-23.11";
+      nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
       disko = {
          url = github:nix-community/disko;
          inputs.nixpkgs.follows = "nixpkgs";
       };
       home-manager = {
-         url = "github:nix-community/home-manager/release-23.11";
+         url = "github:nix-community/home-manager/master";
          inputs.nixpkgs.follows = "nixpkgs"; # Use system packages list where available
       };
       nixos-hardware.url = "github:NixOS/nixos-hardware/master";
@@ -126,6 +126,26 @@
                ./disko-config.nix
                ./gnome.nix
                ./jaal.nix
+               ./configuration.nix
+               ./hardware-configuration.nix
+               home-manager.nixosModules.home-manager
+               {
+                  home-manager.useGlobalPkgs = true;
+                  home-manager.useUserPackages = true;
+                  home-manager.users.aaronh = import ./home.nix;
+               }
+               nixos-hardware.nixosModules.pine64-pinebook-pro
+            ];
+         };
+
+         "drack" = nixpkgs.lib.nixosSystem {
+            system = "aarch64-linux";
+            modules = [
+               # Add Disko for disk management
+               disko.nixosModules.disko
+               ./disko-config.nix
+               ./gnome.nix
+               ./drack.nix
                ./configuration.nix
                ./hardware-configuration.nix
                home-manager.nixosModules.home-manager
