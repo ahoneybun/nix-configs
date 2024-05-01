@@ -10,6 +10,7 @@
     "console=tty0" 
     "clk_ignore_unused"
     "pd_ignore_unused"
+    "arm64.nopauth"
   ];
 
   networking.hostName = "drack";
