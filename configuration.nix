@@ -34,7 +34,7 @@
    time.timeZone = "America/Denver";
 
    # Enter keyboard layout
-   services.xserver.layout = "us";
+   services.xserver.xkb.layout = "us";
 
    # Define user accounts
    users.users.aaronh = {
@@ -101,7 +101,7 @@
 
    services.avahi = {
       enable = true;
-      nssmdns = true;
+      #nssmdns4 = true;
       openFirewall = true;
          # Needed for detecting scanners
          publish = {
@@ -126,6 +126,6 @@
    };
 
    # System 
-   system.stateVersion = "23.11";
+   system.stateVersion = "24.05";
    system.autoUpgrade.enable = true;
 }
