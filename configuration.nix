@@ -57,14 +57,12 @@
                cargo
                dmidecode
                fira
-               firefox
                git
                git-lfs         
                libcamera
                lshw
                restic
                roboto-slab
-               nix-index
                nvd
                unzip
                wget
