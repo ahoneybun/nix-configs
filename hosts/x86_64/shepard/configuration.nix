@@ -4,11 +4,6 @@
     # Name your host machine
     networking.hostName = "shepard"; 
 
-    hardware.opengl = {
-        extraPackages = with pkgs; [ libvdpau-va-gl ];
-        driSupport32Bit = true;
-    };
-
     # Enable binfmt emulation of aarch64-linux.
     boot.binfmt.emulatedSystems = [ "aarch64-linux" ];
 
