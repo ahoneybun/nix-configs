@@ -40,15 +40,16 @@ These files are for the systems themselves such as my Pinebook Pro, Raspberry Pi
 
 - `shepard` : This is my System76 nebula49.
 - `garrus` : This is my System76 Galago Pro (galp3-b).
-- `edi` : This is my custom build for Home Assistant, Nextcloud and Jellyfin.
+- `edi` : This is my custom build for homelab possible stuff.
 - `thelio-nvidia` : This is my work Thelio B1.
-- `sovereign` : This is a Linode instance but it could be for other VPS services as well.
-- `harbinger` : This is a Linode instance but it could be for other VPS services as well.
+- `sovereign` : This was a Linode instance but it could be for other VPS services as well.
+- `harbinger` : This was a Linode instance but it could be for other VPS services as well.
 
 ### aarch64 Nix files: (nix-configs/systems/aarch64/)
 
 - `jaal.nix` : This is my Pinebook Pro.
 - `peebee.nix` : This is my PinePhone.
+- `lexi.nix` : This is my OnePlus 6T.
 - `vetra.nix` : This is my Raspberry Pi 4B.
 
 ## Web Nix files: (nix-configs/web/)
