@@ -57,17 +57,6 @@
               ];
             };
           };
-          home = {
-            size = "10M";
-            content = {
-              type = "filesystem";
-              format = "ext4";
-              mountpoint = "/home";
-            };
-          };
-          raw = {
-            size = "10M";
-          };
         };
       };
     };
