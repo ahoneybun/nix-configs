@@ -28,7 +28,7 @@
     signal-desktop
     tuba
     #youtube-music
-    
+
     # CLI
     btop
     freshfetch
@@ -74,16 +74,7 @@
     };
   };
 
-
-  programs.vscode = {
-     enable = true;
-     package = pkgs.vscodium;
-     extensions = with pkgs.vscode-extensions; [
-        yzhang.markdown-all-in-one
-     ];
-  };
-  
-  dconf.settings = { 
+  dconf.settings = {
      "org/gnome/shell" = {
         favorite-apps = [ "nautilus.desktop" "org.gnome.Console.desktop" "firefox.desktop" "codium.desktop" "signal-desktop.desktop" ];
      };
@@ -108,5 +99,5 @@
 
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
-  
+
 }
