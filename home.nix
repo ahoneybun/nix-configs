@@ -14,7 +14,7 @@
   # You can update Home Manager without changing this value. See
   # the Home Manager release notes for a list of state version
   # changes in each release.
-  home.stateVersion = "23.11";
+  home.stateVersion = "24.05";
 
   nixpkgs.config = {
     allowUnfree = true;
@@ -23,7 +23,7 @@
   home.packages = with pkgs; [
     # GUI
     deja-dup
-    discord
+    #discord
     libreoffice-fresh
     signal-desktop
     tuba
@@ -40,6 +40,7 @@
     shellAliases = {
       nix-generations = "sudo nix-env -p /nix/var/nix/profiles/system --list-generations";
       nix-upgrade = "sudo nixos-rebuild switch --upgrade";
+      nix-full-upgrade = "sudo nix flake update /etc/nixos && sudo nixos-rebuild switch --upgrade";
     };
     bashrcExtra = "eval `ssh-agent`";
   };
