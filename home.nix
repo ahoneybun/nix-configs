@@ -23,11 +23,11 @@
   home.packages = with pkgs; [
     # GUI
     deja-dup
-    #discord
+    #discord #disabled for aarch64
     libreoffice-fresh
     signal-desktop
     tuba
-    #youtube-music
+    #youtube-music #disabled for aarch64
 
     # CLI
     btop
