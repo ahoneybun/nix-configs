@@ -70,3 +70,5 @@ These files are for websites such as LAMP and NGINX.
 ![GNOME Installation](screenshots/nixos-gnome.png)
 
 ![Pantheon Installation](screenshots/nixos-pantheon.png)
+
+![COSMIC Installation](screenshots/NixOS-COSMIC.png)
