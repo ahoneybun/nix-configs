@@ -30,7 +30,6 @@
     #youtube-music #disabled for aarch64
 
     # CLI
-    btop
     freshfetch
     gcc
   ];
