@@ -75,7 +75,7 @@
 
   dconf.settings = {
      "org/gnome/shell" = {
-        favorite-apps = [ "nautilus.desktop" "org.gnome.Console.desktop" "firefox.desktop" "codium.desktop" "signal-desktop.desktop" ];
+        favorite-apps = [ "org.gnome.Console.desktop" "nautilus.desktop" "firefox.desktop" "signal-desktop.desktop" ];
      };
      "org/gnome/desktop/background" = {
        picture-uri-dark = "file:///home/aaronh/Pictures/Walls/wallhaven-2y2wg6.png";
