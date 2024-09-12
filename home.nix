@@ -29,6 +29,10 @@
     tuba
     #youtube-music #disabled for aarch64
 
+    # VM
+    quickemu
+    spice-gtk
+
     # CLI
     freshfetch
     gcc
