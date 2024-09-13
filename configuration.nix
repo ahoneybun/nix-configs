@@ -53,6 +53,7 @@
    environment.systemPackages = 
            with pkgs; 
            [
+            # Packages from nixpkgs
                avahi
                cargo
                dmidecode
@@ -68,6 +69,11 @@
                wget
                xz
                zlib
+
+            # Packages from Flake Inputs
+              inputs.system76-keyboard-configurator.packages.${system}.system76-keyboard-configurator
+              inputs.nix-software-center.packages.${system}.nix-software-center
+
             ]; 
 
    programs.nix-ld.enable = true;
