@@ -8,6 +8,8 @@
          url = github:nix-community/disko;
          inputs.nixpkgs.follows = "nixpkgs";
       };
+      system76-keyboard-configurator.url = "github:pop-os/keyboard-configurator/fix-flake-input";
+      nix-software-center.url = "github:snowfallorg/nix-software-center";
       home-manager = {
          url = "github:nix-community/home-manager";
          inputs.nixpkgs.follows = "nixpkgs";
