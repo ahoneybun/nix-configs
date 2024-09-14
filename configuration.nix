@@ -1,4 +1,4 @@
-{ config, pkgs, ... }: 
+{ config, pkgs, ... }:
 
 {
    imports =
@@ -45,13 +45,13 @@
            hashedPassword = "$6$aAcbLtqiqzySifls$jdKMOQjoWITHD/dWNNZVUH/qNc6aoJ7v4zYofi0U7IJSVTbmOfChS3mzaJbp57AodjdPNKPrnrip8Nlh2Qanx.";
 
    };
-    
+
    # Allow Unfree
    nixpkgs.config.allowUnfree = true;
 
    # Install some packages
-   environment.systemPackages = 
-           with pkgs; 
+   environment.systemPackages =
+           with pkgs;
            [
             # Packages from nixpkgs
                avahi
@@ -59,7 +59,7 @@
                dmidecode
                fira
                git
-               git-lfs         
+               git-lfs
                libcamera
                lshw
                restic
@@ -71,17 +71,16 @@
                zlib
 
             # Packages from Flake Inputs
-              inputs.system76-keyboard-configurator.packages.${system}.system76-keyboard-configurator
               inputs.nix-software-center.packages.${system}.nix-software-center
 
-            ]; 
+            ];
 
    programs.nix-ld.enable = true;
    programs.nix-ld.libraries = with pkgs; [
      # Add any missing dynamic libraries for unpackaged programs
      # here, NOT in environment.systemPackages
    ];
- 
+
    # Enable/Disable hardware
    ## Turn off PulseAudio
    hardware.pulseaudio.enable = false;
@@ -129,7 +128,7 @@
      '';
    };
 
-   # System 
+   # System
    system.stateVersion = "24.05";
    system.autoUpgrade.enable = true;
 }
