@@ -10,9 +10,6 @@
       # Comms
       slack
 
-      # Web
-      google-chrome
-
       # Tools
       copyq
 
