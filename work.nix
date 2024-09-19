@@ -13,6 +13,9 @@
       # Web
       google-chrome
 
+      # Tools
+      copyq
+
       # VM
       quickemu
       spice
