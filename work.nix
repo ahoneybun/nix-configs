@@ -9,6 +9,7 @@
    environment.systemPackages = with pkgs; [
       # Comms
       slack
+      tuba
 
       # Tools
       copyq
