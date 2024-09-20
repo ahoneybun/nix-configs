@@ -4,7 +4,6 @@
    imports =
        [
             ./hardware-configuration.nix
-            ./work.nix
        ];
 
    # Latest kernel
@@ -28,6 +27,11 @@
      dates = "weekly";
      options = "--delete-older-than 1w";
    };
+
+   swapDevices = [ {
+     device = "/var/lib/swapfile";
+     size = 16*1024;
+   } ];
 
    zramSwap.enable = true;
 
