@@ -1,13 +1,14 @@
-{ config, pkgs, ... }:
+{ config, pkgs, inputs, ... }: 
 
 {
    imports =
        [
-#            ./hardware-configuration.nix
+            ./hardware-configuration.nix
+            ./work.nix
        ];
 
    # Latest kernel
-   boot.kernelPackages = pkgs.linuxPackages_latest;
+#   boot.kernelPackages = pkgs.linuxPackages_latest;
 
    boot.loader = {
       systemd-boot.enable = true;
@@ -28,6 +29,8 @@
      options = "--delete-older-than 1w";
    };
 
+   zramSwap.enable = true;
+
    networking.networkmanager.enable = true;
 
    # Set your time zone.
@@ -45,35 +48,35 @@
            hashedPassword = "$6$aAcbLtqiqzySifls$jdKMOQjoWITHD/dWNNZVUH/qNc6aoJ7v4zYofi0U7IJSVTbmOfChS3mzaJbp57AodjdPNKPrnrip8Nlh2Qanx.";
 
    };
-
+    
    # Allow Unfree
    nixpkgs.config.allowUnfree = true;
 
    # Install some packages
-   environment.systemPackages =
-           with pkgs;
+   environment.systemPackages = 
+           with pkgs; 
            [
-            # Packages from nixpkgs
                avahi
-               cargo
                dmidecode
                fira
+               firefox
                git
-               git-lfs
+               git-lfs         
+               helix
                libcamera
                lshw
                restic
                roboto-slab
+               syncthing
                nvd
                unzip
                wget
                xz
                zlib
 
-            # Packages from Flake Inputs
+              # Packages from Flake Inputs
               inputs.nix-software-center.packages.${system}.nix-software-center
-
-            ];
+            ]; 
 
    programs.nix-ld.enable = true;
    programs.nix-ld.libraries = with pkgs; [
@@ -81,6 +84,10 @@
      # here, NOT in environment.systemPackages
    ];
 
+   # Enable COSMIC
+   services.desktopManager.cosmic.enable = true;
+   services.displayManager.cosmic-greeter.enable = true;
+ 
    # Enable/Disable hardware
    ## Turn off PulseAudio
    hardware.pulseaudio.enable = false;
@@ -128,7 +135,7 @@
      '';
    };
 
-   # System
+   # System 
    system.stateVersion = "24.05";
    system.autoUpgrade.enable = true;
 }
