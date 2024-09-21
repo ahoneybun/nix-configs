@@ -87,10 +87,6 @@
      # Add any missing dynamic libraries for unpackaged programs
      # here, NOT in environment.systemPackages
    ];
-
-   # Enable COSMIC
-   services.desktopManager.cosmic.enable = true;
-   services.displayManager.cosmic-greeter.enable = true;
  
    # Enable/Disable hardware
    ## Turn off PulseAudio
