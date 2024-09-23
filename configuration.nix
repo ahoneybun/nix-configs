@@ -1,4 +1,4 @@
-{ config, pkgs, inputs, ... }: 
+{ config, pkgs, ... }: 
 
 {
    imports =
@@ -79,7 +79,7 @@
                zlib
 
               # Packages from Flake Inputs
-              inputs.nix-software-center.packages.${system}.nix-software-center
+              #inputs.nix-software-center.packages.${system}.nix-software-center
             ]; 
 
    programs.nix-ld.enable = true;
